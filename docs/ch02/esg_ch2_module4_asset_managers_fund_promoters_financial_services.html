@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ESG Ch.2 Module 4 · Asset Managers, Fund Promoters & Financial Services</title>
+<style>
+:root{
+  --ink:#111827;--sub:#374151;--muted:#64748b;--faint:#94a3b8;
+  --line:#e5e7eb;--line2:#f1f5f9;--paper:#ffffff;--bg:#eef4f8;--soft:#f8fafc;
+  --green:#15803d;--green-bg:#f0fdf4;--green-bdr:#bbf7d0;
+  --blue:#1d4ed8;--blue-bg:#eff6ff;--blue-bdr:#bfdbfe;
+  --teal:#0f766e;--teal-bg:#f0fdfa;--teal-bdr:#99f6e4;
+  --amber:#b45309;--amber-bg:#fffbeb;--amber-bdr:#fde68a;
+  --violet:#6d28d9;--violet-bg:#f5f3ff;--violet-bdr:#ddd6fe;
+  --rose:#be123c;--rose-bg:#fff1f2;--rose-bdr:#fecdd3;
+  --dark:#0f172a;--dark2:#1e293b;
+  --radius:22px;--radius-sm:14px;--shadow:0 12px 35px rgba(15,23,42,.10);--shadow-sm:0 3px 12px rgba(15,23,42,.07);
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --serif:"Iowan Old Style","Songti SC","Noto Serif SC","Source Han Serif SC","STSong","SimSun",serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);line-height:1.7;background:
+  radial-gradient(circle at 6% 0%,rgba(209,250,229,.85),transparent 30%),
+  radial-gradient(circle at 95% 2%,rgba(221,214,254,.78),transparent 30%),
+  linear-gradient(180deg,#f8fbff 0%,var(--bg) 48%,#f8fafc 100%);min-height:100vh;overflow-x:hidden}
+body,button,input{font-family:var(--sans)}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 18px 80px;min-width:0}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:20px;align-items:stretch;margin-bottom:18px}
+.hero-main{background:rgba(255,255,255,.80);border:1px solid rgba(226,232,240,.92);border-radius:30px;padding:30px 32px;box-shadow:var(--shadow);backdrop-filter:blur(18px);min-width:0;overflow:hidden;position:relative}
+.hero-main:before{content:"";position:absolute;right:-90px;top:-90px;width:290px;height:290px;border-radius:50%;background:linear-gradient(135deg,rgba(20,184,166,.15),rgba(124,58,237,.16));z-index:0}
+.hero-main>*{position:relative;z-index:1}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.pill{display:inline-flex;align-items:center;border:1px solid var(--line);background:rgba(255,255,255,.92);border-radius:999px;padding:5px 11px;font-size:12px;font-weight:900;color:var(--muted);box-shadow:var(--shadow-sm);white-space:normal}
+h1{font-family:var(--serif);font-size:clamp(30px,5vw,54px);line-height:1.02;letter-spacing:-.055em;margin:0 0 14px;color:var(--dark)}
+.lead{font-size:15.5px;color:var(--sub);line-height:1.85;margin:0;max-width:800px}
+.hero-side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.scope-card,.formula-card{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:20px 22px;box-shadow:var(--shadow-sm);min-width:0;overflow:hidden}
+.scope-label{font-size:11px;font-weight:950;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+.scope-title{font-family:var(--serif);font-size:19px;font-weight:900;line-height:1.25;color:var(--dark);margin-bottom:10px}
+.scope-text{font-size:13.5px;color:var(--sub);line-height:1.72;margin:0;overflow-wrap:anywhere}
+.formula-card{background:linear-gradient(135deg,var(--dark),#1f3d35);color:#fff}
+.formula-card .scope-label{color:#cbd5e1}
+.formula{font-size:14px;line-height:1.8;color:#e2e8f0;overflow-wrap:anywhere}
+.formula b{color:#bbf7d0}
+.nav{position:sticky;top:10px;z-index:30;margin:18px 0 24px;display:flex;gap:6px;flex-wrap:wrap;padding:8px;background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:22px;box-shadow:0 10px 30px rgba(15,23,42,.10);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.tab{border:none;background:transparent;color:var(--muted);border-radius:14px;padding:9px 13px;font-size:13px;font-weight:850;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap}
+.tab:hover{background:var(--line2);color:var(--ink)}
+.tab.active{background:var(--dark);color:#fff;box-shadow:0 6px 18px rgba(15,23,42,.22)}
+.panel{display:none;scroll-margin-top:86px;min-width:0}
+.panel.active{display:block;animation:rise .22s ease-out}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.panel-head{margin:0 0 18px}
+.eyebrow{font-size:11px;font-weight:950;letter-spacing:.10em;color:var(--muted);text-transform:uppercase;margin-bottom:5px}
+h2{font-family:var(--serif);font-size:clamp(24px,4vw,38px);line-height:1.12;letter-spacing:-.04em;margin:0;color:var(--dark)}
+.subhead{font-size:14px;color:var(--muted);margin:7px 0 0;line-height:1.75}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.big-card,.logic-card,.trap-card,.role-card,.actor-card,.mini-card,.timeline-card,.source-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow-sm);min-width:0;overflow:hidden}
+.big-card h3,.logic-card h3,.trap-card h3,.role-card h3,.actor-card h3,.mini-card h3,.timeline-card h3,.source-card h3{font-size:17px;line-height:1.35;margin:0 0 8px;color:var(--dark);overflow-wrap:anywhere}
+.big-card p,.logic-card p,.trap-card p,.role-card p,.actor-card p,.mini-card p,.timeline-card p,.source-card p{font-size:13.5px;color:var(--sub);line-height:1.78;margin:0;overflow-wrap:anywhere}
+.tag{display:inline-flex;align-items:center;border-radius:999px;padding:4px 10px;font-size:11.5px;font-weight:950;line-height:1.2;margin:0 4px 8px 0;max-width:100%;white-space:normal}
+.tag-blue{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-bdr)}
+.tag-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-bdr)}
+.tag-amber{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bdr)}
+.tag-violet{background:var(--violet-bg);color:var(--violet);border:1px solid var(--violet-bdr)}
+.tag-teal{background:var(--teal-bg);color:var(--teal);border:1px solid var(--teal-bdr)}
+.tag-rose{background:var(--rose-bg);color:var(--rose);border:1px solid var(--rose-bdr)}
+.tag-dark{background:var(--dark);color:#fff;border:1px solid var(--dark)}
+.map-card{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.1fr);gap:18px;align-items:stretch}
+.map-left{border-radius:24px;background:linear-gradient(135deg,#0f172a,#134e4a);padding:24px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.map-title{font-family:var(--serif);font-size:30px;font-weight:950;line-height:1.08;letter-spacing:-.04em;margin-bottom:12px}
+.map-left p{color:#d1fae5;font-size:13.5px;line-height:1.82;margin:0}
+.equations{display:flex;flex-direction:column;gap:8px;margin-top:18px}
+.eq{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:15px;padding:10px 12px;font-size:13px;color:#e2e8f0;overflow-wrap:anywhere}
+.map-right{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;min-width:0}
+.role-card{display:grid;grid-template-columns:58px minmax(0,1fr);gap:14px;align-items:start;padding:18px}
+.role-num{width:54px;height:54px;border-radius:18px;background:linear-gradient(135deg,var(--green),#134e4a);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:24px;font-weight:950;box-shadow:0 10px 22px rgba(21,128,61,.18)}
+.cov-group{margin-bottom:18px}
+.cov-title{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid;border-radius:18px;padding:12px 15px;font-size:14px;font-weight:950;margin-bottom:10px;line-height:1.35}
+.cov-title span{font-size:12px;font-weight:950;opacity:.76;white-space:nowrap}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.check-item{display:grid;grid-template-columns:24px minmax(0,1fr);gap:9px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px 13px;box-shadow:0 2px 8px rgba(15,23,42,.04);min-width:0}
+.check-mark{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--green-bg);border:1px solid var(--green-bdr);color:var(--green);font-size:13px;font-weight:900;flex:0 0 auto}
+.check-item strong{display:block;font-size:12.8px;color:var(--dark);line-height:1.35;margin-bottom:3px;overflow-wrap:anywhere}
+.check-item span{display:block;font-size:12.5px;color:var(--muted);line-height:1.55;overflow-wrap:anywhere}
+.logic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.logic-card{padding:20px}
+.eq-box{margin:8px 0 10px;background:var(--soft);border:1px solid var(--line2);border-radius:14px;padding:11px 12px;font-size:13px;line-height:1.65;color:var(--dark2);overflow-wrap:anywhere}
+.hook{margin-top:12px;background:var(--green-bg);border:1px solid var(--green-bdr);color:var(--green);border-radius:14px;padding:10px 12px;font-size:12.5px;font-weight:800;line-height:1.62;overflow-wrap:anywhere}
+.table-wrap{width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:20px;background:var(--paper);box-shadow:var(--shadow-sm)}
+table{width:100%;border-collapse:collapse;min-width:860px}
+th{background:linear-gradient(135deg,#166534,#15803d);color:#fff;text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;padding:12px 14px;white-space:normal}
+td{border-top:1px solid var(--line);padding:13px 14px;font-size:13px;color:var(--sub);vertical-align:top;line-height:1.65;overflow-wrap:anywhere}
+td:first-child{font-weight:900;color:var(--dark)}
+.clean-list{margin:9px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+.clean-list li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:8px;font-size:13.2px;color:var(--sub);line-height:1.6;overflow-wrap:anywhere}
+.clean-list li:before{content:"✓";color:var(--green);font-weight:950}
+.actor-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.actor-card{display:grid;grid-template-columns:48px minmax(0,1fr);gap:13px}
+.actor-icon{width:44px;height:44px;border-radius:16px;background:var(--amber-bg);border:1px solid var(--amber-bdr);display:flex;align-items:center;justify-content:center;color:var(--amber);font-weight:950;font-family:var(--serif);font-size:22px}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.flow-step{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:var(--shadow-sm);min-width:0;position:relative;overflow:hidden}
+.flow-step:not(:last-child)::after{content:"→";position:absolute;right:-11px;top:50%;transform:translateY(-50%);font-weight:950;color:var(--faint);z-index:2;background:#fff;border:1px solid var(--line);border-radius:999px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:13px}
+.flow-step h3{margin:0 0 6px;font-size:15px;color:var(--dark)}
+.flow-step p{font-size:12.8px;color:var(--sub);line-height:1.65;margin:0}
+.notice{background:linear-gradient(135deg,var(--violet-bg),var(--blue-bg));border:1px solid #dbeafe;border-radius:24px;padding:18px 20px;color:var(--dark);font-size:14px;line-height:1.8;box-shadow:var(--shadow-sm);margin-top:14px;overflow-wrap:anywhere}
+.persona-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.persona{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow-sm);min-width:0;overflow:hidden}
+.persona h3{font-size:16px;margin:0 0 6px;color:var(--dark)}
+.persona p{font-size:13px;color:var(--sub);line-height:1.74;margin:0}
+.timeline{position:relative;display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.tl-item{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;align-items:stretch;min-width:0}
+.tl-year{border-radius:18px;background:linear-gradient(135deg,#0f172a,#334155);color:#fff;font-family:var(--serif);font-weight:950;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);min-height:70px}
+.tl-body{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:14px 16px;box-shadow:var(--shadow-sm);min-width:0;overflow:hidden}
+.tl-body h3{font-size:15px;margin:0 0 4px;color:var(--dark)}
+.tl-body p{font-size:12.8px;color:var(--sub);line-height:1.65;margin:0;overflow-wrap:anywhere}
+.trap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.trap-card{border-left:5px solid var(--rose)}
+.search-row{display:flex;gap:10px;margin-bottom:14px;align-items:center}
+.search{flex:1;border:1px solid var(--line);border-radius:16px;padding:12px 15px;font-size:14px;background:var(--paper);outline:none;min-width:0}
+.search:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.10)}
+.btn-small{border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 13px;font-size:12.5px;font-weight:900;color:var(--sub);cursor:pointer;white-space:nowrap}
+.qa-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+details.qa{background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);overflow:hidden;min-width:0}
+details.qa summary{list-style:none;cursor:pointer;padding:14px 16px;font-size:13.5px;font-weight:850;color:var(--dark);line-height:1.55;display:grid;grid-template-columns:auto minmax(0,1fr);gap:9px;align-items:start;min-width:0}
+details.qa summary::-webkit-details-marker{display:none}
+details.qa summary span{font-size:11px;font-weight:950;color:var(--blue);background:var(--blue-bg);border:1px solid var(--blue-bdr);border-radius:999px;padding:3px 8px;line-height:1.2;margin-top:1px;white-space:nowrap}
+details.qa[open] summary{border-bottom:1px solid var(--line2)}
+details.qa div{padding:13px 16px 16px;font-size:13.5px;color:var(--sub);line-height:1.8;background:var(--soft);overflow-wrap:anywhere}
+.compress{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:var(--shadow);min-width:0;overflow:hidden}
+.compress-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.compress-card{border-radius:20px;padding:17px 18px;min-width:0;overflow:hidden}
+.compress-card h3{font-size:14px;font-weight:950;line-height:1.35;margin:0 0 8px}
+.compress-card p{font-size:13px;line-height:1.78;margin:0;overflow-wrap:anywhere}
+.footer-note{margin-top:14px;font-size:12.5px;color:var(--muted);line-height:1.7}
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr}
+  .map-card{grid-template-columns:1fr}
+  .actor-grid,.persona-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .flow-step:not(:last-child)::after{display:none}
+}
+@media(max-width:680px){
+  .wrap{padding:14px 12px 60px}
+  .hero-main{padding:22px 18px;border-radius:24px}
+  .scope-card,.formula-card{padding:16px 17px;border-radius:21px}
+  .nav{position:static;overflow-x:visible;flex-wrap:wrap;border-radius:18px;margin:14px 0 20px}
+  .tab{font-size:12px;padding:8px 10px}
+  .grid-2,.grid-3,.logic-grid,.map-right,.actor-grid,.persona-grid,.trap-grid,.qa-list,.compress-grid,.flow{grid-template-columns:1fr}
+  .role-card,.actor-card{grid-template-columns:46px minmax(0,1fr);padding:15px}
+  .role-num{width:44px;height:44px;border-radius:15px;font-size:20px}
+  .actor-icon{width:40px;height:40px;border-radius:14px;font-size:19px}
+  .check-grid{grid-template-columns:1fr}
+  .tl-item{grid-template-columns:70px minmax(0,1fr)}
+  .tl-year{font-size:16px;min-height:64px}
+  .search-row{flex-wrap:wrap}
+  .search{flex-basis:100%}
+  h1{font-size:clamp(29px,11vw,44px)}
+  table{min-width:0;width:100%;display:block;border-collapse:separate}
+  thead{display:none}
+  tbody{display:block;width:100%}
+  tr{display:block;width:100%;border-bottom:1px solid var(--line);padding:10px 0}
+  tr:last-child{border-bottom:0}
+  td{display:block;width:100%;border:0!important;padding:7px 12px!important}
+  td:before{display:block;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}
+  td:nth-child(1):before{content:"角色"}
+  td:nth-child(2):before{content:"核心定位"}
+  td:nth-child(3):before{content:"ESG 动词"}
+  td:nth-child(4):before{content:"挑战 / 细节"}
+  td:nth-child(5):before{content:"题眼"}
+}
+@media print{
+  body{background:#fff!important}
+  .nav,.search-row{display:none!important}
+  .panel{display:block!important;page-break-after:always}
+  .panel:last-child{page-break-after:avoid}
+  .hero{grid-template-columns:1fr!important}
+  .big-card,.logic-card,.trap-card,.role-card,.actor-card,.mini-card,.timeline-card,.source-card{box-shadow:none!important;break-inside:avoid}
+  details.qa div{display:block!important}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <div class="hero-main">
+      <div class="pills">
+        <span class="pill">📘 ESG Chapter 2</span>
+        <span class="pill">Module 4</span>
+        <span class="pill">2.1.2 + 2.1.3</span>
+        <span class="pill">逻辑等式心象术</span>
+      </div>
+      <h1>Asset Managers,<br>Fund Promoters<br>& Financial Services</h1>
+      <p class="lead">本模块处理 ESG market 的供给侧三组角色：谁把 ESG 需求做成组合与产品，谁把产品筛给客户，谁提供证券、数据、评级、披露与投票基础设施。核心不是背机构名，而是记住每个角色的“动词”。</p>
+    </div>
+    <div class="hero-side">
+      <div class="scope-card">
+        <div class="scope-label">范围说明</div>
+        <div class="scope-title">Chapter 2 · Asset Managers, Fund Promoters, and Financial Services</div>
+        <p class="scope-text">覆盖 asset managers、investment consultants / retail financial advisers、investment platforms、fund labelers、investment banks、custodian banks、research and advisory firms、stock exchanges、financial and ESG rating agencies、proxy voting providers。</p>
+      </div>
+      <div class="formula-card">
+        <div class="scope-label">主逻辑等式</div>
+        <div class="formula"><b>ESG Supply Chain</b> == Asset managers 把 ESG 变成组合与产品 + Fund promoters 把产品变成客户选择 + Financial services 把市场信息和基础设施补齐</div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="nav" aria-label="module navigation">
+    <button class="tab active" data-tab="overview">总览</button>
+    <button class="tab" data-tab="coverage">覆盖清单</button>
+    <button class="tab" data-tab="roles">角色地图</button>
+    <button class="tab" data-tab="managers">Asset Managers</button>
+    <button class="tab" data-tab="indexes">Index Timeline</button>
+    <button class="tab" data-tab="promoters">Fund Promoters</button>
+    <button class="tab" data-tab="services">Financial Services</button>
+    <button class="tab" data-tab="source">原文表格</button>
+    <button class="tab" data-tab="logic">逻辑卡片</button>
+    <button class="tab" data-tab="traps">题眼陷阱</button>
+    <button class="tab" data-tab="review">自测</button>
+    <button class="tab" data-tab="compressed">压缩背诵</button>
+  </nav>
+
+  <section id="overview" class="panel active">
+    <div class="panel-head">
+      <div class="eyebrow">Chapter Map · Module 4</div>
+      <h2>三组角色，一条供给链</h2>
+      <p class="subhead">拆题目：Asset Managers / Fund Promoters / Financial Services。拆出来的三个词直接领走答案：manager 负责“投资执行”，promoter 负责“客户筛选”，service 负责“市场工具”。</p>
+    </div>
+    <div class="map-card">
+      <div class="map-left">
+        <div>
+          <div class="map-title">钱的 ESG 意愿<br>如何变成市场产品？</div>
+          <p>资产所有者发出 ESG 信号后，市场不是自动反应，而是经过三层转换：经理把信号做成组合，推广/顾问把组合推荐给客户，金融服务商把数据、证券、评级、披露和投票基础设施补齐。</p>
+        </div>
+        <div class="equations">
+          <div class="eq"><b>Manager</b> == select securities + engage companies + design products</div>
+          <div class="eq"><b>Promoter</b> == screen funds + advise clients + rate / label products</div>
+          <div class="eq"><b>Service</b> == issue green bonds + analyze / rate + require disclosure + support voting</div>
+        </div>
+      </div>
+      <div class="map-right">
+        <article class="role-card"><div class="role-num">01</div><div><span class="tag tag-green">执行者</span><h3>Asset Managers</h3><p>选证券、建组合、做 engagement，并把 ESG 扩展到 active equity、fixed income、passive indexes、smart beta、derivatives 和 private markets。</p></div></article>
+        <article class="role-card"><div class="role-num" style="background:linear-gradient(135deg,var(--violet),#312e81)">02</div><div><span class="tag tag-violet">守门人</span><h3>Fund Promoters</h3><p>Investment consultants、retail advisers、platforms、labelers 负责把产品翻译成客户能选择、能比较、能信任的基金选项。</p></div></article>
+        <article class="role-card"><div class="role-num" style="background:linear-gradient(135deg,var(--blue),#1e3a8a)">03</div><div><span class="tag tag-blue">基础设施</span><h3>Financial Services</h3><p>Investment banks、research firms、stock exchanges、rating agencies、proxy voting providers 让 ESG 证券、数据、披露和投票机制变得可用。</p></div></article>
+        <article class="role-card"><div class="role-num" style="background:linear-gradient(135deg,var(--rose),#7f1d1d)">!</div><div><span class="tag tag-rose">总陷阱</span><h3>考题考“动词”</h3><p>不要只背机构名。看到 stock exchange 想 disclosure；看到 platform 想 ratings / recommendations；看到 consultant 想 fiduciary + mandate。</p></div></article>
+      </div>
+    </div>
+    <div class="notice"><b>隐藏线：</b>本节不是“机构列表”，而是 ESG 市场供给链。最上游的信号来自 asset owners；如果信号不清，asset managers 发展 ESG products 的激励就弱，这也是官方 Q20 的核心。</div>
+  </section>
+
+  <section id="coverage" class="panel">
+    <div class="panel-head">
+      <div class="eyebrow">Coverage Checklist</div>
+      <h2>覆盖清单：逐点防遗漏</h2>
+      <p class="subhead">本页共覆盖 75 个知识点。每个点都归到题目拆出的三个角色里，另设官方题眼组。</p>
+    </div>
+    <div class="cov-group"><div class="cov-title" style="background:var(--green-bg);border-color:var(--green-bdr);color:var(--green)">A · Asset Managers：把信号变成组合<span>24 项</span></div><div class="check-grid">
+<div class="check-item"><div class="check-mark">✓</div><div><strong>核心定义</strong><span>Asset managers select securities and offer a portfolio to asset owners.</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>双重影响路径</strong><span>通过 security selection 改变组合 ESG characteristics；通过 engagement 改善 investee companies 的 ESG performance。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>供需双向</strong><span>他们会回应 asset owners 对 ESG 的兴趣，也能主动提出 new products and new approaches。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>起点</strong><span>ESG offerings 最早从 active funds invested in listed equities 开始。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>向 fixed income 迁移</strong><span>股权 valuation 中积累的 ESG integration 知识，在一定程度上迁移到 corporate bonds。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>非公司发行人</strong><span>Fixed-income funds 包含 supranationals、governments、municipalities，因此方法论必须覆盖 all issuer types。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>绿色债券</strong><span>过去十年 green bonds 的崛起进一步推动 fixed income 成为 responsible investors 关注的资产类别。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>另类资产 slower</strong><span>Infrastructure、real estate、private equity、private credit 因 portfolio holdings 的 consistent ESG data 难获取，系统性 ESG integration 较慢。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>另类资产 impact 贡献</strong><span>尽管 integration 较慢，这些资产类别在 structuring impact investing funds 上很重要。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>被动/指数起步较晚</strong><span>Indexes and passive funds with ESG integration 比 active investments 晚约 20 年出现。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>指数重要性</strong><span>Indexes 是 performance benchmarks，也是 ETFs 等 passive funds 的基础。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>第一只 ESG index</strong><span>Domini 400 Social Index，现称 MSCI KLD 400 Social Index，1990 年由 KLD Research & Analytics launched。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>市场推动</strong><span>Passive trend、ETF 偏好、ESG data and research availability 一起推动 ESG indexes 发展。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>2022 指数规模</strong><span>IIA 2022：全球超过 55,000 个 ESG indexes，整体 indexes 超过 3 million。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>ESG index 增长</strong><span>2022 ESG-themed indexes 增长 55%，高于 2021 年 43% 的增长。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>复杂产品渗透</strong><span>ESG factors 已进入 factor investing、smart beta funds、derivatives。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>资源投入 ①</strong><span>部分 asset managers 通过 merger/acquisition 获得 ESG 或 impact investing 专长。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>资源投入 ②</strong><span>部分投入 technology/data science，开发 in-house scoring systems and dashboards。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>资源投入 ③</strong><span>有 global investor 建立 proprietary system 衡量 fixed-income issuers 相对 ESG objectives 的进展。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>资源投入 ④</strong><span>Responsible investment teams 在部分机构扩大到 over 20 people。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>挑战 ①</strong><span>缺少 asset owners 对 ESG investing 的 clear signals。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>挑战 ②</strong><span>Consultants/advisers 对 investment objectives 的解释过窄。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>挑战 ③</strong><span>Resource challenges，尤其当 ESG 被看作 engagement/marketing/compliance 而非 core investment process。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>挑战 ④</strong><span>不同 jurisdiction 的 ESG/sustainability regulation 增加了 disclosure/reporting 资源需求。</span></div></div>
+</div></div>
+<div class="cov-group"><div class="cov-title" style="background:var(--violet-bg);border-color:var(--violet-bdr);color:var(--violet)">B · Fund Promoters：把产品变成客户选择<span>31 项</span></div><div class="check-grid">
+<div class="check-item"><div class="check-mark">✓</div><div><strong>定义范围</strong><span>Fund promoters 包括 investment consultants and retail financial advisers、investment platforms、fund labelers。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Consultants/advisers 定义</strong><span>Investment consultants 帮 institutions，retail financial advisers 帮 individuals 设定并实现 long-term financial goals。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>基金筛选</strong><span>他们通常通过 proposal of investment funds 帮客户执行，可在 screening and short-listing 中考虑 funds 的 ESG characteristics。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>PRI 角色判断</strong><span>PRI 认为 consultants/advisers 将 ESG factors 纳入 core service provision 对下一轮 responsible investment 增长至关重要。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Gatekeeper 逻辑</strong><span>Consultants/advisers 是 gatekeepers：分别影响 asset owners 与 individual investors。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Trusted source</strong><span>对 small/medium asset owners 的 trustees 和 retail investors 来说，他们是可信知识来源，建议常被低阻力接受。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>PRI 目标</strong><span>让 consultants/advisers 理解 ESG issues 的 investment implications，并转化为 investment recommendations。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>2017 发现</strong><span>PRI 2017 review 认为多数 consultants 未能在 investment practice 中考虑 ESG issues。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>历史问题</strong><span>顾问给投资者的 advice 往往不支持 integrating ESG factors 的 products。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>2019 guidance</strong><span>PRI 2019 发布 guidance，帮助 asset owners 向 consultants 要求 ESG information。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>顾问挑战 ①</strong><span>Consultants/advisers 常基于 narrow interpretation of investment objectives 给建议。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>顾问挑战 ②</strong><span>他们感知 asset owners 缺少 responsible investment appetite，因此较少把 ESG 纳入 mainstream offerings。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>EU 强制路径</strong><span>EU 通过 SFDR、EU Credit Rating Guidelines 等要求 investment funds/rating agencies 披露 sustainability issues。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>ESG 偏好收集</strong><span>MiFID、UCITS、AIFMD 要求 financial service providers 明确 take stock of investors’ ESG preferences。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>顾问可做 ①</strong><span>帮助 trustees 理解 fiduciary obligations。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>顾问可做 ②</strong><span>制定 inclusive of ESG considerations 的 investment strategy。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>顾问可做 ③</strong><span>起草符合 strategy and fiduciary obligations 的 investment principles and policies。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>顾问可做 ④</strong><span>在 manager selection 中帮助 asset owners 设计 proposal、formulate mandate，嵌入 ESG beliefs and implementation expectations。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>顾问可做 ⑤</strong><span>在 research/screening/selection/appointment 中纳入 asset managers 的 ESG capabilities and processes。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Adviser 对个人</strong><span>Retail advisers 可主动提供 relevant ESG information，并把 ESG investments 纳入 offerings and advice。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Investment platforms 影响</strong><span>平台 research and recommendations 对资产管理行业影响很大，正/负推荐会推动资金流入或流出。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Morningstar 2016</strong><span>Morningstar 2016 年开始在 offerings 中整合 ESG ratings。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>平台功能</strong><span>平台可通过揭示 funds ESG integration 的 extent/depth，提高 awareness 并帮助识别 ESG funds。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Morningstar 2022</strong><span>2022 年 Morningstar 将近 1,700 funds、USD1.2 trillion 从 sustainable funds list 中移出，因 SFDR 后新增 criteria。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Labels 作用</strong><span>Fund labels 为 practitioners and clients 提供 benchmarks and quality guarantees。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>UK FCA</strong><span>近期 UK FCA guidance 包括 anti-greenwashing rule、SDR 和 fund labeling regime，2024 生效。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>欧洲标签</strong><span>十多年内欧洲已产生 8 个 specialized sustainable finance labels。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>标签类型</strong><span>Labels 通常分 general ESG investing labels 与 thematic labels，后者常聚焦 environment/climate。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>跨国挑战</strong><span>少数 labels 覆盖多国，给 global investors 提供 certified ESG funds 造成挑战。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>营销误区</strong><span>Certification labels 有时被视作 marketing tool，但实践中不一定伴随 marketing strategy。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Novethic 发现</strong><span>欧洲 ESG criteria certified funds 中约四分之一名称不反映 sustainable approach，约 30 个为 thematic environmental funds。</span></div></div>
+</div></div>
+<div class="cov-group"><div class="cov-title" style="background:var(--blue-bg);border-color:var(--blue-bdr);color:var(--blue)">C · Financial Services：把市场基础设施补齐<span>14 项</span></div><div class="check-grid">
+<div class="check-item"><div class="check-mark">✓</div><div><strong>定义范围</strong><span>Financial services 包括 investment banks、custodian banks、investment research and advisory firms、stock exchanges、financial and ESG rating agencies。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>核心角色</strong><span>它们是 responsible investment 的 enablers。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>两大贡献</strong><span>提高 ESG-quality securities 的 availability；提高 securities/assets ESG characteristics 信息质量。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Investment banks</strong><span>可支持公司发行 green bond，募集资金用于 climate and environmental projects。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Sell-side analysts</strong><span>可在 analyses、recommendations、ratings 中考虑 ESG factors。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Credit rating agencies</strong><span>可把 climate、broader nature considerations、social aspects 纳入 ratings。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Stock exchanges</strong><span>可提高 listed companies 的 ESG data disclosure requirements，Sustainable Stock Exchange Initiative 鼓励此做法。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Proxy voting providers</strong><span>可在 voting and voting recommendations 中整合 ESG considerations。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>数据驱动增长</strong><span>ESG data sourcing、analysis、disclosure 的改善推动 ESG market growth。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>评级格局</strong><span>ESG analysis/ratings 由 traditional credit rating companies 与少数 specialist firms 主导。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>气候咨询</strong><span>专门帮助 investors 理解并量化 climate change portfolio risk 的 consultants 已较成熟，且新进入者不断增加。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>行业整合</strong><span>行业增长和 consolidation（partnerships、M&A）提高了投资者进一步实施 ESG investing 的能力。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>监管联动</strong><span>这些发展也支持 policymakers/regulators 改进 transparency、disclosure、reporting of ESG-related risks and opportunities。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>后续章节</strong><span>ESG rating agencies and suppliers 在 Chapter 7 进一步展开。</span></div></div>
+</div></div>
+<div class="cov-group"><div class="cov-title" style="background:var(--rose-bg);border-color:var(--rose-bdr);color:var(--rose)">D · 官方题眼映射<span>6 项</span></div><div class="check-grid">
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Q14</strong><span>第一只 ESG index = Domini 400 Social Index / MSCI KLD 400 Social Index；被动 ESG funds 比 active ESG 晚约 20 年。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Q15</strong><span>要求 financial service providers 收集 investors’ ESG preferences 的监管已经在 EU 引入；不局限于 public equities，也非全球普遍实施。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Q20</strong><span>Asset managers 最大阻碍：缺少 asset owners 对 ESG investing 的 clear signals。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Q23</strong><span>Stock exchanges 最好支持 ESG advancement 的方式：提高 listed securities/companies 的 ESG disclosure requirements。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Q25</strong><span>Asset managers 的 ESG offering：active listed equities 起步 → other asset classes and passive investing。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Q26</strong><span>Infrastructure/real estate/private equity/private credit 慢于 ESG integration 的主因：portfolio holdings consistent ESG data 难获取。</span></div></div>
+</div></div>
+  </section>
+
+  <section id="roles" class="panel">
+    <div class="panel-head">
+      <div class="eyebrow">Role Map</div>
+      <h2>角色地图：从资产所有者信号到市场执行</h2>
+      <p class="subhead">用一条链记住：Owner 发信号，Promoter 转译，Manager 执行，Services 提供工具和基础设施。</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step"><span class="tag tag-dark">Step 1</span><h3>Asset owner signal</h3><p>资产所有者表达 ESG demand，或把 ESG 放进 mandate、RFP、monitoring。</p></div>
+      <div class="flow-step"><span class="tag tag-violet">Step 2</span><h3>Consultant / adviser</h3><p>把 fiduciary duty、ESG strategy、manager selection 翻译成可执行建议。</p></div>
+      <div class="flow-step"><span class="tag tag-green">Step 3</span><h3>Asset manager</h3><p>通过 selection、engagement、product innovation 把 ESG 做进组合。</p></div>
+      <div class="flow-step"><span class="tag tag-blue">Step 4</span><h3>Market infrastructure</h3><p>投资银行、交易所、评级、研究、代理投票服务让 ESG 信息和证券可用。</p></div>
+    </div>
+    <div class="grid-3" style="margin-top:16px">
+      <div class="big-card"><span class="tag tag-green">选什么</span><h3>Portfolio construction</h3><p>由 asset managers 主导：active listed equities 起步，逐渐扩展到 fixed income、passive、factors、smart beta、derivatives 和 private assets。</p></div>
+      <div class="big-card"><span class="tag tag-violet">给谁选</span><h3>Advice & distribution</h3><p>由 fund promoters 主导：consultants / advisers 影响客户决策，platforms 和 labels 影响产品识别、比较与信任。</p></div>
+      <div class="big-card"><span class="tag tag-blue">凭什么选</span><h3>Data & disclosure</h3><p>由 financial services 支撑：研究、评级、交易所披露、绿色债券、投票建议与数据分析共同提升 ESG 市场质量。</p></div>
+    </div>
+    <div class="notice"><b>双向回忆：</b>看到“提高上市公司 ESG 披露”反推 stock exchange；看到“ESG preferences”反推 EU + financial service providers；看到“consistent ESG data 难获取”反推 private assets integration 较慢。</div>
+  </section>
+
+  <section id="managers" class="panel">
+    <div class="panel-head"><div class="eyebrow">Asset Managers</div><h2>Asset Managers：把 ESG 做进组合</h2><p class="subhead">核心题目：Asset manager 如何影响组合 ESG characteristics？答案不是一个动作，而是“选 + 交 + 创”。</p></div>
+    <div class="grid-2">
+      <article class="big-card"><span class="tag tag-green">主等式</span><h3>Asset manager influence</h3><div class="eq-box"><b>Asset manager ESG power</b> == Security selection + Engagement with investees + New ESG products / approaches</div><p>他们既对 asset owners 的兴趣作出反应，也能主动设计新产品，推动 ESG 市场供给扩张。</p></article>
+      <article class="big-card"><span class="tag tag-amber">演化路径</span><h3>从 active equity 到复杂产品</h3><ul class="clean-list"><li>起点：active funds invested in listed equities。</li><li>迁移：equity valuation 知识转向 corporate bonds。</li><li>扩展：fixed income 需要覆盖 supranationals、governments、municipalities。</li><li>近年：green bonds 推动 fixed income interest。</li><li>深化：factor investing、smart beta、derivatives 也能纳入 ESG。</li></ul></article>
+      <article class="big-card"><span class="tag tag-rose">慢点</span><h3>Private markets 为什么慢？</h3><p>Infrastructure、real estate、private equity、private credit 的 ESG integration 较慢，核心不是“没有 ESG 价值”，而是 portfolio holdings 的 consistent ESG data 难获取。但它们在 structuring impact investing funds 中仍然重要。</p><div class="hook">题眼：Q26 看到 private assets slower → data consistency。</div></article>
+      <article class="big-card"><span class="tag tag-blue">差异化</span><h3>资源投入与能力建设</h3><ul class="clean-list"><li>M&A：收购或合并 ESG / impact investing specialists。</li><li>Technology：用 data science 建 in-house scoring systems and dashboards。</li><li>Proprietary systems：衡量 fixed-income issuers 对 ESG objectives 的 progress。</li><li>People：responsible investment teams 扩大到 over 20 people。</li></ul></article>
+    </div>
+    <div class="notice"><b>Asset manager challenges == 信号不清 + 目标解释过窄 + 资源不足 + 监管差异。</b>其中官方 Q20 直接考“最大 limiter”：lack of clear signals from asset owners。</div>
+  </section>
+
+  <section id="indexes" class="panel">
+    <div class="panel-head"><div class="eyebrow">Exhibit 9 Rebuilt</div><h2>ESG Index Timeline：指数考点一眼锁定</h2><p class="subhead">指数部分最容易考 Q14。别只记“很多指数”，要记住第一只、第一只全球、第一只固定收益系列，以及被动 ESG 比 active 晚约 20 年。</p></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-year">1990</div><div class="tl-body"><h3>MSCI KLD 400 Social Index</h3><p>Domini 400 Social Index，第一只 ESG index。</p></div></div>
+      <div class="tl-item"><div class="tl-year">1999</div><div class="tl-body"><h3>Dow Jones Sustainability Index</h3><p>第一只 global ESG index。</p></div></div>
+      <div class="tl-item"><div class="tl-year">2001</div><div class="tl-body"><h3>FTSE4Good + KLD Broad Market Sustainability Index</h3><p>KLD Broad Market Sustainability Index 是 US index for institutional investors，后来成为 MSCI USA IMI ESG Leaders Index。</p></div></div>
+      <div class="tl-item"><div class="tl-year">2004</div><div class="tl-body"><h3>WilderHill Clean Energy + KLD Select Social</h3><p>WilderHill Clean Energy Index 是第一只 alternative energy index；KLD Select Social Index 是第一只 optimized ESG index。</p></div></div>
+      <div class="tl-item"><div class="tl-year">2013</div><div class="tl-body"><h3>Barclays MSCI ESG Fixed Income Indexes</h3><p>第一组 global ESG fixed income indexes。</p></div></div>
+      <div class="tl-item"><div class="tl-year">2016</div><div class="tl-body"><h3>ESG + Factors Indexes</h3><p>FTSE、MSCI、Solactive、RobecoSAM 等推出 ESG + factors indexes。</p></div></div>
+      <div class="tl-item"><div class="tl-year">2022</div><div class="tl-body"><h3>55,000+ ESG indexes</h3><p>IIA 报告超过 55,000 个 ESG indexes；ESG-themed indexes 增长 55%，超过前一年 43%。</p></div></div>
+    </div>
+    <div class="grid-3" style="margin-top:16px">
+      <div class="mini-card"><span class="tag tag-blue">Why critical</span><h3>Benchmark + ETF base</h3><p>Index 是 performance benchmark，也是 passive funds such as ETFs 的基础。</p></div>
+      <div class="mini-card"><span class="tag tag-green">Why grew</span><h3>Passive + ETF + Data</h3><p>被动投资趋势、ETF 偏好、ESG data/research availability 共同推动 ESG indexes 发展。</p></div>
+      <div class="mini-card"><span class="tag tag-rose">Q14</span><h3>不要被数字干扰</h3><p>题目如果问 first ESG index，答案直接锁定 MSCI KLD 400 Social Index。</p></div>
+    </div>
+  </section>
+
+  <section id="promoters" class="panel">
+    <div class="panel-head"><div class="eyebrow">Fund Promoters</div><h2>Fund Promoters：把 ESG 产品送到客户面前</h2><p class="subhead">这组最容易混。记住三个动词：consultants/advisers 给建议，platforms 给评级与推荐，labelers 给认证与质量保证。</p></div>
+    <div class="persona-grid">
+      <article class="persona"><span class="tag tag-violet">01</span><h3>Investment consultants & retail advisers</h3><p>帮助机构和个人设定长期财务目标，通常通过投资基金实现；可在 fund screening and short-listing 中纳入 ESG characteristics。</p><ul class="clean-list"><li>帮助 trustees 理解 fiduciary obligations。</li><li>制定 inclusive of ESG considerations 的 strategy。</li><li>起草 investment principles and policies。</li><li>设计 proposal / mandate，纳入 ESG beliefs and expectations。</li><li>把 ESG capabilities and processes 纳入 manager due diligence。</li></ul></article>
+      <article class="persona"><span class="tag tag-blue">02</span><h3>Investment platforms</h3><p>平台的 research and recommendations 对资产管理行业影响很大，正负推荐能显著推动资金流入或流出。</p><ul class="clean-list"><li>Morningstar 2016 开始整合 ESG ratings。</li><li>帮助提高 ESG funds awareness。</li><li>帮助投资者更容易识别和获取 ESG fund 信息。</li><li>2022 年 Morningstar 将近 1,700 funds、USD1.2tn 移出 sustainable list。</li></ul></article>
+      <article class="persona"><span class="tag tag-amber">03</span><h3>Fund labelers</h3><p>Labels 为 practitioners and clients 提供 benchmarks and quality guarantees。</p><ul class="clean-list"><li>UK FCA guidance 包括 anti-greenwashing rule、SDR、fund labeling regime。</li><li>欧洲十多年内形成 8 个 specialized labels。</li><li>Labels 可 general，也可 thematic，多聚焦 environment / climate。</li><li>多国适用 labels 少，全球投资者跨辖区发行 certified ESG funds 更难。</li></ul></article>
+    </div>
+    <div class="notice"><b>PRI 对顾问的逻辑：</b>2017 发现多数 consultants 未能在投资实践中考虑 ESG；2019 发布 guidance 帮 asset owners 向 consultants 要 ESG information。顾问是“下一波 ESG 增长”的 gatekeepers。</div>
+  </section>
+
+  <section id="services" class="panel">
+    <div class="panel-head"><div class="eyebrow">Financial Services</div><h2>Financial Services：ESG 市场的工具箱</h2><p class="subhead">这组不是卖基金的，而是让 ESG 证券、信息、披露和投票机制变得可用。</p></div>
+    <div class="actor-grid">
+      <article class="actor-card"><div class="actor-icon">IB</div><div><h3>Investment banks</h3><p>支持 green bond issuance，将 proceeds earmarked for climate and environmental projects。</p></div></article>
+      <article class="actor-card"><div class="actor-icon">R</div><div><h3>Research & advisory firms</h3><p>把 ESG、climate、nature、social aspects 纳入 analyses and recommendations。</p></div></article>
+      <article class="actor-card"><div class="actor-icon">CR</div><div><h3>Credit rating agencies</h3><p>在 ratings 中考虑 climate、broader nature considerations 和 social aspects。</p></div></article>
+      <article class="actor-card"><div class="actor-icon">EX</div><div><h3>Stock exchanges</h3><p>提高 listed companies 的 ESG disclosure requirements；这是 Q23 官方题眼。</p></div></article>
+      <article class="actor-card"><div class="actor-icon">PV</div><div><h3>Proxy voting providers</h3><p>将 ESG considerations 纳入 voting and voting recommendations。</p></div></article>
+      <article class="actor-card"><div class="actor-icon">ESG</div><div><h3>ESG rating agencies</h3><p>ESG analysis and ratings 由传统 credit rating companies 与少数 specialist firms 主导。</p></div></article>
+    </div>
+    <div class="grid-2" style="margin-top:16px">
+      <article class="big-card"><span class="tag tag-blue">增长驱动</span><h3>Data sourcing + analysis + disclosure</h3><p>ESG data sourcing、analysis、disclosure 的改善推动 ESG 市场增长，也让投资者更能实施 ESG investing。</p></article>
+      <article class="big-card"><span class="tag tag-teal">行业演化</span><h3>Specialists + consolidation</h3><p>气候风险 portfolio consultants 已相当成熟，新进入者继续增加；partnerships、mergers、acquisitions 提高行业能力，也支持监管者改善透明度、披露和报告。</p></article>
+    </div>
+  </section>
+
+  <section id="source" class="panel">
+    <div class="panel-head"><div class="eyebrow">Source Table</div><h2>原文表格：角色、动词、考点</h2><p class="subhead">原文内容用表格呈现；结构图和逻辑卡片不重复堆原文，避免上一轮那种“原文和图混在一起”的问题。</p></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>角色</th><th>核心定位</th><th>ESG 动词</th><th>挑战 / 细节</th><th>题眼</th></tr></thead>
+        <tbody><tr><td>Asset managers</td><td>执行组合与产品</td><td>Security selection + engagement + new ESG products/approaches</td><td>资产类别扩展、指数被动化、资源投入、监管披露</td><td>Q20 / Q25 / Q26</td></tr>
+<tr><td>Investment consultants</td><td>机构资产所有者的顾问</td><td>帮助 trustees 理解 fiduciary duty、制定 ESG strategy、设计 mandate、筛选 managers</td><td>建议常受 narrow investment objectives 限制；2017 PRI review 认为多数未充分考虑 ESG</td><td>Q15 / Q20</td></tr>
+<tr><td>Retail financial advisers</td><td>个人投资者顾问</td><td>主动提供 ESG information，把 ESG investments 纳入 advice and offerings</td><td>若认为客户无 ESG appetite，可能不把 ESG 纳入 mainstream offerings</td><td>Q15 / Q24</td></tr>
+<tr><td>Investment platforms</td><td>基金信息与推荐平台</td><td>Ratings/recommendations 影响资金流向；帮助识别 ESG funds</td><td>分类标准变化会导致大量基金被移出 sustainable list</td><td>Morningstar 2016 / 2022</td></tr>
+<tr><td>Fund labelers</td><td>认证与质量保证</td><td>Labels 提供 benchmarks and quality guarantees</td><td>多国适用标签少；标签可能被误认为只是 marketing tool</td><td>Greenwashing / labels</td></tr>
+<tr><td>Investment banks</td><td>证券发行支持</td><td>支持 green bond issuance，募集资金用于 climate/environmental projects</td><td>产品设计与信息透明度需要匹配</td><td>Financial services</td></tr>
+<tr><td>Research/advisory firms</td><td>信息与分析</td><td>将 climate、nature、social aspects 纳入 analyses and recommendations</td><td>ESG data quality/standardization 仍是行业挑战</td><td>Chapter 7 link</td></tr>
+<tr><td>Stock exchanges</td><td>上市规则与披露基础设施</td><td>提高 listed companies 的 ESG disclosure requirements</td><td>不是直接替投资者评 ESG，也不是 voting recommendation</td><td>Q23</td></tr>
+<tr><td>Financial & ESG rating agencies</td><td>评级与比较工具</td><td>传统 credit rating agencies 与 specialist firms 提供 ESG analysis/ratings</td><td>评级差异、数据来源、方法论透明度后续在 Ch7 继续展开</td><td>Q14 / Ch7</td></tr>
+<tr><td>Proxy voting providers</td><td>投票执行与建议</td><td>在 voting and voting recommendations 中纳入 ESG considerations</td><td>Voting recommendation 不等于企业 engagement 本身</td><td>Stewardship link</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="logic" class="panel">
+    <div class="panel-head"><div class="eyebrow">Logic Equation Cards</div><h2>逻辑等式卡片</h2><p class="subhead">每张卡都按 skill 方式处理：题目拆解 → 隐藏线 → 逻辑等式 → 记忆钩子。</p></div>
+    <div class="logic-grid">
+      <article class="logic-card"><span class="tag tag-green">题目：Asset manager</span><h3>为什么它能改变 ESG 组合？</h3><div class="eq-box"><b>Asset manager ESG influence</b> == 选什么证券 + 怎么和公司互动 + 能不能创造新产品</div><p>Selection 改组合，engagement 改公司，product innovation 改市场供给。</p><div class="hook">钩子：经理不是“卖基金的人”，而是把 ESG 真正做进组合的人。</div></article>
+      <article class="logic-card"><span class="tag tag-amber">题目：Product evolution</span><h3>为什么 active equity 是起点？</h3><div class="eq-box"><b>ESG product evolution</b> == Active listed equity → Corporate bonds → All issuer types → Green bonds → Passive indexes / smart beta / derivatives</div><p>先在最容易拿数据、最容易估值的 listed equities 中发展，再向固定收益、指数和复杂产品扩散。</p><div class="hook">钩子：先“看公司股票”，再“看所有发行人”。</div></article>
+      <article class="logic-card"><span class="tag tag-rose">题目：Private assets slower</span><h3>为什么 private markets 慢？</h3><div class="eq-box"><b>Private asset ESG delay</b> == Holdings 不透明 + consistent ESG data 难获取 → Systematic integration 较慢</div><p>但 infrastructure、real estate、PE、private credit 仍在 impact investing fund structuring 中重要。</p><div class="hook">钩子：不是不想做，是数据拿不到。</div></article>
+      <article class="logic-card"><span class="tag tag-blue">题目：ESG indexes</span><h3>为什么指数不是小配角？</h3><div class="eq-box"><b>ESG index value</b> == Performance benchmark + Passive fund / ETF base + Measurement tool</div><p>指数把 ESG 从主动基金方法变成全行业可比较、可复制、可被动跟踪的工具。</p><div class="hook">钩子：指数是 ESG 产品化的“尺子”和“模具”。</div></article>
+      <article class="logic-card"><span class="tag tag-violet">题目：Fund promoters</span><h3>为什么它们是 gatekeepers？</h3><div class="eq-box"><b>Fund promoter power</b> == 客户信任 + 基金筛选 + 推荐 / 评级 / 标签 → 资金流向</div><p>Consultants/advisers 的建议常被低阻力接受，platforms 推荐能改变资金流，labels 改变客户信任。</p><div class="hook">钩子：它们不一定管钱，但它们决定客户看见什么钱。</div></article>
+      <article class="logic-card"><span class="tag tag-violet">题目：Consultant ESG role</span><h3>顾问具体能做什么？</h3><div class="eq-box"><b>Consultant ESG service</b> == Fiduciary explanation + ESG strategy + Policies + Mandate design + Manager due diligence</div><p>这条线帮助你把顾问的零散任务压成一个完整服务流程。</p><div class="hook">钩子：先讲责任，再写策略，再选经理。</div></article>
+      <article class="logic-card"><span class="tag tag-blue">题目：Financial services</span><h3>为什么它们是 enablers？</h3><div class="eq-box"><b>Financial services enable ESG</b> == More ESG securities + Better ESG information + Stronger disclosure / voting infrastructure</div><p>它们让 ESG 投资者不只是“想投”，而是真的有证券可投、有信息可用、有披露可比。</p><div class="hook">钩子：没有工具箱，经理和客户都只能空谈 ESG。</div></article>
+      <article class="logic-card"><span class="tag tag-rose">题目：Common challenges</span><h3>为什么 ESG integration 会卡住？</h3><div class="eq-box"><b>ESG integration bottleneck</b> == Asset owner signal 不清 + Consultants 解释过窄 + Resources 不足 + Regulation 分裂</div><p>四个瓶颈里最常考的是第一个：asset owners 没有给出清晰需求信号。</p><div class="hook">钩子：上游不喊话，下游不建厂。</div></article>
+    </div>
+  </section>
+
+  <section id="traps" class="panel">
+    <div class="panel-head"><div class="eyebrow">Exam Traps</div><h2>题眼陷阱速查</h2><p class="subhead">本模块官方题主要考动词对应关系、时间顺序和“不是因为不想做，而是因为数据难”的原因。</p></div>
+    <div class="trap-grid"><article class="trap-card"><span class="tag tag-rose">陷阱</span><h3>Q14 · 第一只 ESG index</h3><p>错误选项常说“fewer than 20 ESG indexes”或“ESG indexes 和 active ESG funds 同期出现”。正确题眼是 first ESG index = Domini 400 Social Index / MSCI KLD 400 Social Index；passive/index 比 active 晚约 20 年。</p></article>
+<article class="trap-card"><span class="tag tag-rose">陷阱</span><h3>Q15 · ESG preferences regulation</h3><p>题眼是 EU：MiFID / UCITS / AIFMD 等要求 financial service providers 明确收集 investors’ ESG preferences。不是 limited to public equities，也不是 globally widely implemented。</p></article>
+<article class="trap-card"><span class="tag tag-rose">陷阱</span><h3>Q20 · 最大 limiter</h3><p>看到“greatest limiter in development of ESG investing”，本模块锁定 lack of clear signals from asset owners。不是缺 ESG indexes，也不是 institutional investors 比 retail 更慢。</p></article>
+<article class="trap-card"><span class="tag tag-rose">陷阱</span><h3>Q23 · Stock exchanges</h3><p>交易所不是评级机构，也不是 proxy voting provider。它最直接的 ESG 支持方式是提高 listed companies / listed securities 的 ESG disclosure requirements。</p></article>
+<article class="trap-card"><span class="tag tag-rose">陷阱</span><h3>Q25 · Asset manager evolution</h3><p>顺序不能反：不是从 passive 到 active，而是 active listed equities 起步，再扩展到 other asset classes and passive investing。</p></article>
+<article class="trap-card"><span class="tag tag-rose">陷阱</span><h3>Q26 · Private assets data</h3><p>Infrastructure / real estate / PE / private credit 不是“不感兴趣”，而是 portfolio holdings 的 consistent ESG data 难获取，所以 ESG integration 较慢。</p></article>
+<article class="trap-card"><span class="tag tag-rose">陷阱</span><h3>Consultant vs Platform vs Labeler</h3><p>Consultant/adviser 给建议；platform 给 ratings/recommendations 和 fund information；labeler 给 certification/quality guarantee。三者都属于 fund promoters，但考点动词不同。</p></article>
+<article class="trap-card"><span class="tag tag-rose">陷阱</span><h3>Financial services vs Fund promoters</h3><p>Fund promoters 影响客户选择基金；financial services 改善证券供给、市场信息、披露和投票基础设施。不要把 stock exchange 放进 fund promoters。</p></article></div>
+  </section>
+
+  <section id="review" class="panel">
+    <div class="panel-head"><div class="eyebrow">Self Test</div><h2>自测：看题眼能不能反推角色</h2><p class="subhead">建议先全部收起，逐题说出逻辑等式，再展开答案。</p></div>
+    <div class="search-row"><input class="search" id="qaSearch" type="search" placeholder="搜索：index · Morningstar · stock exchange · data · consultants · Q20 · green bond…"/><button class="btn-small" id="openAll">全部展开</button><button class="btn-small" id="closeAll">全部收起</button></div>
+    <div class="qa-list" id="qaList"><details class="qa" data-text="Asset managers 影响投资组合 ESG characteristics 的两条主路径是什么？ 第一条是 security selection：选择哪些证券进入组合；第二条是 engagement：与 investee companies 互动，推动其改善 ESG performance。"><summary><span>Q1</span><b>Asset managers 影响投资组合 ESG characteristics 的两条主路径是什么？</b></summary><div>第一条是 security selection：选择哪些证券进入组合；第二条是 engagement：与 investee companies 互动，推动其改善 ESG performance。</div></details>
+<details class="qa" data-text="为什么 asset managers 既是 ESG 需求的响应者，又是供给侧创新者？ 他们会回应 asset owners 对 ESG issues 的兴趣，同时也能主动提出 new products and approaches，改变市场上可供选择的 ESG 产品。"><summary><span>Q2</span><b>为什么 asset managers 既是 ESG 需求的响应者，又是供给侧创新者？</b></summary><div>他们会回应 asset owners 对 ESG issues 的兴趣，同时也能主动提出 new products and approaches，改变市场上可供选择的 ESG 产品。</div></details>
+<details class="qa" data-text="Asset managers 的 ESG offerings 最早从哪类产品开始？后来如何演化？ 最早从 active funds invested in listed equities 开始；随后扩展到 corporate bonds、非公司固定收益发行人、绿色债券、其他资产类别，以及 passive investing / ESG indexes。"><summary><span>Q3</span><b>Asset managers 的 ESG offerings 最早从哪类产品开始？后来如何演化？</b></summary><div>最早从 active funds invested in listed equities 开始；随后扩展到 corporate bonds、非公司固定收益发行人、绿色债券、其他资产类别，以及 passive investing / ESG indexes。</div></details>
+<details class="qa" data-text="为什么 fixed income 的 ESG 方法论不能只看公司？ 因为 fixed-income funds 可能包含 supranationals、governments、municipalities 等 non-corporate issuers，所以 ESG methodology 必须覆盖所有 issuer types。"><summary><span>Q4</span><b>为什么 fixed income 的 ESG 方法论不能只看公司？</b></summary><div>因为 fixed-income funds 可能包含 supranationals、governments、municipalities 等 non-corporate issuers，所以 ESG methodology 必须覆盖所有 issuer types。</div></details>
+<details class="qa" data-text="Infrastructure、real estate、private equity、private credit 为什么 ESG integration 较慢？ 主要因为难以从 portfolio holdings 获得 consistent ESG data，因此系统性、显性地进行 ESG integration 更困难。"><summary><span>Q5</span><b>Infrastructure、real estate、private equity、private credit 为什么 ESG integration 较慢？</b></summary><div>主要因为难以从 portfolio holdings 获得 consistent ESG data，因此系统性、显性地进行 ESG integration 更困难。</div></details>
+<details class="qa" data-text="ESG indexes 为什么对投资行业 critical？ 因为 indexes 是 performance benchmarks，也是 ETFs 等 passive investment funds 的基础。"><summary><span>Q6</span><b>ESG indexes 为什么对投资行业 critical？</b></summary><div>因为 indexes 是 performance benchmarks，也是 ETFs 等 passive investment funds 的基础。</div></details>
+<details class="qa" data-text="第一只 ESG index 是什么？考试怎么锁定？ Domini 400 Social Index，现称 MSCI KLD 400 Social Index，1990 年由 KLD Research &amp; Analytics launched。看到 first ESG index，直接锁定 MSCI KLD 400。"><summary><span>Q7</span><b>第一只 ESG index 是什么？考试怎么锁定？</b></summary><div>Domini 400 Social Index，现称 MSCI KLD 400 Social Index，1990 年由 KLD Research & Analytics launched。看到 first ESG index，直接锁定 MSCI KLD 400。</div></details>
+<details class="qa" data-text="ESG indexes/passive funds 与 active ESG funds 的时间关系是什么？ ESG integration 的 indexes and passive funds 比 active investments 晚约 20 年出现。"><summary><span>Q8</span><b>ESG indexes/passive funds 与 active ESG funds 的时间关系是什么？</b></summary><div>ESG integration 的 indexes and passive funds 比 active investments 晚约 20 年出现。</div></details>
+<details class="qa" data-text="2022 年 IIA 关于 ESG indexes 的两个数字是什么？ 超过 55,000 个 ESG indexes；ESG-themed indexes 增长 55%，高于 2021 年 43% 的增长。"><summary><span>Q9</span><b>2022 年 IIA 关于 ESG indexes 的两个数字是什么？</b></summary><div>超过 55,000 个 ESG indexes；ESG-themed indexes 增长 55%，高于 2021 年 43% 的增长。</div></details>
+<details class="qa" data-text="Asset managers 为区分自己，会投入哪些 ESG-related resources？ 可能并购 ESG/impact specialists；投资 technology/data science；建立 in-house scoring systems and dashboards；建立 proprietary systems；扩大 responsible investment teams。"><summary><span>Q10</span><b>Asset managers 为区分自己，会投入哪些 ESG-related resources？</b></summary><div>可能并购 ESG/impact specialists；投资 technology/data science；建立 in-house scoring systems and dashboards；建立 proprietary systems；扩大 responsible investment teams。</div></details>
+<details class="qa" data-text="Asset managers 面临的四个 ESG integration challenges 是什么？ 缺少 asset owners 的 clear signals；consultants/advisers 对投资目标解释过窄；资源挑战；不同 jurisdictions 的 ESG/sustainability regulations 增加 disclosure/reporting 资源需求。"><summary><span>Q11</span><b>Asset managers 面临的四个 ESG integration challenges 是什么？</b></summary><div>缺少 asset owners 的 clear signals；consultants/advisers 对投资目标解释过窄；资源挑战；不同 jurisdictions 的 ESG/sustainability regulations 增加 disclosure/reporting 资源需求。</div></details>
+<details class="qa" data-text="Fund promoter 在本节中包括哪三类？ Investment consultants and retail financial advisers、investment platforms、fund labelers。"><summary><span>Q12</span><b>Fund promoter 在本节中包括哪三类？</b></summary><div>Investment consultants and retail financial advisers、investment platforms、fund labelers。</div></details>
+<details class="qa" data-text="为什么 investment consultants 和 retail advisers 被称为 gatekeepers？ 因为他们分别影响 asset owners 和 individual investors 的基金选择，是 trustees、small/medium asset owners 和 retail investors 常依赖的知识与建议来源。"><summary><span>Q13</span><b>为什么 investment consultants 和 retail advisers 被称为 gatekeepers？</b></summary><div>因为他们分别影响 asset owners 和 individual investors 的基金选择，是 trustees、small/medium asset owners 和 retail investors 常依赖的知识与建议来源。</div></details>
+<details class="qa" data-text="PRI 2017 review 和 2019 guidance 的逻辑是什么？ 2017 review 认为多数 consultants 未能在 investment practice 中考虑 ESG issues；2019 guidance 帮助 asset owners 向 consultants 要求 ESG information，推动顾问把 ESG 纳入服务。"><summary><span>Q14</span><b>PRI 2017 review 和 2019 guidance 的逻辑是什么？</b></summary><div>2017 review 认为多数 consultants 未能在 investment practice 中考虑 ESG issues；2019 guidance 帮助 asset owners 向 consultants 要求 ESG information，推动顾问把 ESG 纳入服务。</div></details>
+<details class="qa" data-text="Consultants 在 investment strategy 阶段能做哪三件事？ 帮助 trustees 理解 fiduciary obligations；制定包含 ESG considerations 的 strategy；起草与 strategy 和 fiduciary obligations 一致的 investment principles and policies。"><summary><span>Q15</span><b>Consultants 在 investment strategy 阶段能做哪三件事？</b></summary><div>帮助 trustees 理解 fiduciary obligations；制定包含 ESG considerations 的 strategy；起草与 strategy 和 fiduciary obligations 一致的 investment principles and policies。</div></details>
+<details class="qa" data-text="Consultants 在 manager selection 阶段能做什么？ 帮助 asset owners 设计 proposal、formulate mandate，将 ESG beliefs 和 implementation expectations 融入其中；并在 research、screening、selection、appointment 中纳入 managers 的 ESG capabilities and processes。"><summary><span>Q16</span><b>Consultants 在 manager selection 阶段能做什么？</b></summary><div>帮助 asset owners 设计 proposal、formulate mandate，将 ESG beliefs 和 implementation expectations 融入其中；并在 research、screening、selection、appointment 中纳入 managers 的 ESG capabilities and processes。</div></details>
+<details class="qa" data-text="EU 哪些规则被用来 sidestep 顾问不主动纳入 ESG 的问题？ SFDR、EU Credit Rating Guidelines 要求基金/评级机构披露 sustainability issues；MiFID、UCITS、AIFMD 要求 financial service providers 明确 take stock of investors’ ESG preferences。"><summary><span>Q17</span><b>EU 哪些规则被用来 sidestep 顾问不主动纳入 ESG 的问题？</b></summary><div>SFDR、EU Credit Rating Guidelines 要求基金/评级机构披露 sustainability issues；MiFID、UCITS、AIFMD 要求 financial service providers 明确 take stock of investors’ ESG preferences。</div></details>
+<details class="qa" data-text="Investment platforms 对 ESG funds 有什么作用？ 通过 ratings、research 和 recommendations 影响资金流入/流出；提高 ESG funds 的 awareness；让投资者更容易 identify and access information on ESG funds。"><summary><span>Q18</span><b>Investment platforms 对 ESG funds 有什么作用？</b></summary><div>通过 ratings、research 和 recommendations 影响资金流入/流出；提高 ESG funds 的 awareness；让投资者更容易 identify and access information on ESG funds。</div></details>
+<details class="qa" data-text="Morningstar 在本节中有哪两个时间点？ 2016 年开始整合 ESG ratings；2022 年将近 1,700 funds、USD1.2 trillion 从 sustainable funds list 中移出，原因是 SFDR 后新增 criteria。"><summary><span>Q19</span><b>Morningstar 在本节中有哪两个时间点？</b></summary><div>2016 年开始整合 ESG ratings；2022 年将近 1,700 funds、USD1.2 trillion 从 sustainable funds list 中移出，原因是 SFDR 后新增 criteria。</div></details>
+<details class="qa" data-text="Fund labels 的作用与挑战是什么？ 作用是提供 benchmarks and quality guarantees；挑战是跨国适用标签少，global investors 跨辖区发行 certified ESG funds 更难，且 labels 可能被误认为纯 marketing tool。"><summary><span>Q20</span><b>Fund labels 的作用与挑战是什么？</b></summary><div>作用是提供 benchmarks and quality guarantees；挑战是跨国适用标签少，global investors 跨辖区发行 certified ESG funds 更难，且 labels 可能被误认为纯 marketing tool。</div></details>
+<details class="qa" data-text="Financial services 为什么是 responsible investment 的 enablers？ 因为它们提高 ESG-quality securities 的 availability，并提升 securities and assets ESG characteristics 的信息质量。"><summary><span>Q21</span><b>Financial services 为什么是 responsible investment 的 enablers？</b></summary><div>因为它们提高 ESG-quality securities 的 availability，并提升 securities and assets ESG characteristics 的信息质量。</div></details>
+<details class="qa" data-text="Investment banks、stock exchanges、proxy voting providers 分别如何支持 ESG？ Investment banks 支持 green bond issuance；stock exchanges 提高 listed companies 的 ESG disclosure requirements；proxy voting providers 在 voting and voting recommendations 中纳入 ESG considerations。"><summary><span>Q22</span><b>Investment banks、stock exchanges、proxy voting providers 分别如何支持 ESG？</b></summary><div>Investment banks 支持 green bond issuance；stock exchanges 提高 listed companies 的 ESG disclosure requirements；proxy voting providers 在 voting and voting recommendations 中纳入 ESG considerations。</div></details>
+<details class="qa" data-text="Stock exchanges 的官方题眼是什么？ 最佳支持方式是 increasing ESG disclosure requirements for listed securities / listed companies，不是自己评估 ESG characteristics，也不是 voting recommendations。"><summary><span>Q23</span><b>Stock exchanges 的官方题眼是什么？</b></summary><div>最佳支持方式是 increasing ESG disclosure requirements for listed securities / listed companies，不是自己评估 ESG characteristics，也不是 voting recommendations。</div></details>
+<details class="qa" data-text="ESG analysis/ratings 市场的格局是什么？ 主要由 traditional credit rating companies 和少数 specialist firms 主导；同时，气候风险咨询机构已较成熟且新进入者不断增加。"><summary><span>Q24</span><b>ESG analysis/ratings 市场的格局是什么？</b></summary><div>主要由 traditional credit rating companies 和少数 specialist firms 主导；同时，气候风险咨询机构已较成熟且新进入者不断增加。</div></details>
+<details class="qa" data-text="本模块总逻辑等式是什么？ ESG supply chain == Asset managers 把 ESG 变成组合与产品 + Fund promoters 把产品变成客户选择 + Financial services 把市场信息和基础设施补齐。"><summary><span>Q25</span><b>本模块总逻辑等式是什么？</b></summary><div>ESG supply chain == Asset managers 把 ESG 变成组合与产品 + Fund promoters 把产品变成客户选择 + Financial services 把市场信息和基础设施补齐。</div></details></div>
+  </section>
+
+  <section id="compressed" class="panel">
+    <div class="panel-head"><div class="eyebrow">Final Review</div><h2>压缩背诵版</h2><p class="subhead">考前 5 分钟扫这页：先背主等式，再背六个官方题眼。</p></div>
+    <div class="compress">
+      <div class="compress-grid">
+        <div class="compress-card" style="background:var(--green-bg);border:1px solid var(--green-bdr)"><h3 style="color:var(--green)">1 · Asset managers</h3><p>选证券 + engagement + 新产品。ESG offerings：active listed equities 起步 → other asset classes → passive indexes。Private assets 慢 = consistent ESG data 难获取。最大挑战 = asset owners 没有 clear signals。</p></div>
+        <div class="compress-card" style="background:var(--blue-bg);border:1px solid var(--blue-bdr)"><h3 style="color:var(--blue)">2 · ESG indexes</h3><p>Index = benchmark + ETF base。First ESG index = Domini 400 / MSCI KLD 400 Social Index。ESG passive/index 比 active ESG 晚约 20 年。</p></div>
+        <div class="compress-card" style="background:var(--violet-bg);border:1px solid var(--violet-bdr)"><h3 style="color:var(--violet)">3 · Fund promoters</h3><p>Consultants/advisers = advice + fiduciary + mandate + manager due diligence。Platforms = ratings/recommendations drive flows。Labelers = benchmarks + quality guarantees。</p></div>
+        <div class="compress-card" style="background:var(--amber-bg);border:1px solid var(--amber-bdr)"><h3 style="color:var(--amber)">4 · EU / PRI</h3><p>PRI：2017 发现 consultants 未充分考虑 ESG；2019 指导 asset owners 向 consultants 要 ESG info。EU：SFDR / Credit Rating Guidelines / MiFID / UCITS / AIFMD 推动披露和 ESG preferences。</p></div>
+        <div class="compress-card" style="background:var(--teal-bg);border:1px solid var(--teal-bdr)"><h3 style="color:var(--teal)">5 · Financial services</h3><p>Enablers = 提高 ESG securities availability + 信息质量。IB 发 green bond；stock exchange 提高 ESG disclosure requirements；proxy voting provider 纳入 ESG voting recommendations。</p></div>
+        <div class="compress-card" style="background:var(--rose-bg);border:1px solid var(--rose-bdr)"><h3 style="color:var(--rose)">6 · 官方题眼</h3><p>Q14 first index；Q15 EU ESG preferences；Q20 lack clear asset owner signals；Q23 stock exchanges = disclosure；Q25 active equity → other/passive；Q26 private assets slow = data。</p></div>
+      </div>
+      <div class="footer-note">最终压缩式：<b>ESG Market Supply == Manager 执行 + Promoter 守门 + Service 赋能</b>。看机构名不够，必须问它在链条里“做了什么动作”。</div>
+    </div>
+  </section>
+</main>
+<script>
+const tabs=[...document.querySelectorAll('.tab')];
+const panels=[...document.querySelectorAll('.panel')];
+tabs.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    tabs.forEach(b=>b.classList.remove('active'));
+    panels.forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    const target=document.getElementById(btn.dataset.tab);
+    target.classList.add('active');
+  });
+});
+const search=document.getElementById('qaSearch');
+if(search){
+  search.addEventListener('input',()=>{
+    const q=search.value.trim().toLowerCase();
+    document.querySelectorAll('details.qa').forEach(d=>{
+      const text=(d.dataset.text || d.textContent).toLowerCase();
+      d.style.display = (!q || text.includes(q)) ? '' : 'none';
+    });
+  });
+}
+document.getElementById('openAll').addEventListener('click',()=>document.querySelectorAll('details.qa').forEach(d=>d.open=true));
+document.getElementById('closeAll').addEventListener('click',()=>document.querySelectorAll('details.qa').forEach(d=>d.open=false));
+</script>
+</body>
+</html>

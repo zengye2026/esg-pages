@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ESG Ch.2 Module 1 · 2.1.1 ESG Investing in Numbers</title>
+<style>
+:root{
+  --ink:#111827;--sub:#334155;--muted:#64748b;--faint:#94a3b8;
+  --line:#e2e8f0;--line2:#f1f5f9;--paper:#ffffff;--soft:#f8fafc;--bg:#eef3f8;
+  --blue:#2563eb;--blue-bg:#eff6ff;--blue-bdr:#bfdbfe;
+  --green:#15803d;--green-bg:#f0fdf4;--green-bdr:#bbf7d0;
+  --amber:#b45309;--amber-bg:#fffbeb;--amber-bdr:#fde68a;
+  --violet:#6d28d9;--violet-bg:#f5f3ff;--violet-bdr:#ddd6fe;
+  --rose:#be123c;--rose-bg:#fff1f2;--rose-bdr:#fecdd3;
+  --teal:#0f766e;--teal-bg:#f0fdfa;--teal-bdr:#99f6e4;
+  --slate:#0f172a;--slate2:#1e293b;
+  --r-xs:10px;--r:16px;--r-lg:24px;--r-xl:30px;
+  --sh-sm:0 2px 9px rgba(15,23,42,.06);
+  --sh:0 12px 35px rgba(15,23,42,.10);
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --serif:"Iowan Old Style","Songti SC","Noto Serif SC","Source Han Serif SC","STSong","SimSun",serif;
+  --mono:"SFMono-Regular","Menlo","Consolas",monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.65;min-height:100vh;
+  background-image:
+    radial-gradient(ellipse at 12% 0%,rgba(240,253,244,.95),transparent 38%),
+    radial-gradient(ellipse at 92% 4%,rgba(239,246,255,.95),transparent 35%),
+    linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,0) 26%);
+}
+button,input{font-family:var(--sans)}
+.wrap{max-width:1160px;margin:0 auto;padding:28px 18px 88px}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px;align-items:stretch;margin-bottom:18px}
+.hero-main{background:rgba(255,255,255,.76);border:1px solid rgba(226,232,240,.95);border-radius:var(--r-xl);padding:28px 30px;box-shadow:var(--sh);backdrop-filter:blur(16px);position:relative;overflow:hidden}
+.hero-main:before{content:"";position:absolute;right:-70px;top:-90px;width:270px;height:270px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.16),rgba(37,99,235,0) 68%)}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;position:relative}
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:800;color:var(--muted);box-shadow:var(--sh-sm);white-space:nowrap}
+h1{font-family:var(--serif);font-size:clamp(27px,4.8vw,52px);line-height:1.04;letter-spacing:-.045em;margin:0 0 12px;color:var(--slate);position:relative}
+.lead{margin:0;max-width:760px;font-size:15.5px;color:var(--sub);line-height:1.85;position:relative}
+.hero-side{display:flex;flex-direction:column;gap:12px}
+.side-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px 22px;box-shadow:var(--sh-sm)}
+.side-label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:900;color:var(--muted);margin-bottom:8px}
+.eq-main{font-family:var(--serif);font-size:18px;font-weight:800;line-height:1.48;color:var(--slate);margin-bottom:10px}
+.side-note{font-size:13.5px;color:var(--sub);line-height:1.75;background:var(--green-bg);border:1px solid var(--green-bdr);border-radius:var(--r);padding:12px 14px}
+
+/* NAV */
+.nav{position:sticky;top:10px;z-index:20;margin:16px 0 24px;padding:7px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:thin;background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:999px;box-shadow:0 12px 34px rgba(15,23,42,.12);backdrop-filter:blur(18px)}
+.tab{border:0;background:transparent;color:var(--muted);font-size:13px;font-weight:900;border-radius:999px;padding:10px 15px;white-space:nowrap;cursor:pointer;transition:all .16s ease}
+.tab:hover{background:var(--line2);color:var(--ink)}
+.tab.active{background:var(--slate);color:#fff;box-shadow:0 8px 20px rgba(15,23,42,.22)}
+
+/* PANELS */
+.panel{display:none;scroll-margin-top:82px}
+.panel.active{display:block;animation:rise .22s ease-out}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.panel-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin:0 0 18px}
+.eyebrow{font-size:11px;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+h2{font-family:var(--serif);font-size:clamp(22px,4vw,35px);letter-spacing:-.035em;line-height:1.12;margin:0;color:var(--slate)}
+.head-desc{font-size:13.5px;color:var(--muted);max-width:420px;text-align:right;line-height:1.65}
+
+/* GENERIC */
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-sm);padding:20px;min-width:0}
+.card.tight{padding:16px}
+.card.dark{background:var(--slate);border-color:var(--slate);color:#fff}
+h3{font-size:17px;line-height:1.35;color:var(--slate);margin:0 0 9px;font-weight:900;letter-spacing:-.01em}
+.card.dark h3{color:#fff}
+p{margin:0 0 10px}.small{font-size:13.5px;color:var(--sub);line-height:1.75}.muted{color:var(--muted)}
+.tag{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:4px 10px;font-size:11.5px;font-weight:900;line-height:1;white-space:nowrap}
+.tag-blue{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-bdr)}
+.tag-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-bdr)}
+.tag-amber{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bdr)}
+.tag-violet{background:var(--violet-bg);color:var(--violet);border:1px solid var(--violet-bdr)}
+.tag-rose{background:var(--rose-bg);color:var(--rose);border:1px solid var(--rose-bdr)}
+.tag-teal{background:var(--teal-bg);color:var(--teal);border:1px solid var(--teal-bdr)}
+.tag-dark{background:var(--slate);color:#fff;border:1px solid var(--slate)}
+
+/* overview */
+.overview-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-bottom:16px}
+.big-equation{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;border-radius:var(--r-xl);padding:24px;box-shadow:var(--sh);position:relative;overflow:hidden}
+.big-equation:after{content:"";position:absolute;width:220px;height:220px;right:-72px;bottom:-82px;border-radius:50%;background:radial-gradient(circle,rgba(125,211,252,.20),rgba(125,211,252,0) 70%)}
+.big-equation .label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#93c5fd;font-weight:900;margin-bottom:8px}
+.big-equation .formula{font-family:var(--serif);font-size:clamp(20px,3vw,30px);font-weight:900;line-height:1.45;position:relative;z-index:1}
+.big-equation .explain{font-size:13.5px;color:#cbd5e1;line-height:1.8;margin-top:14px;position:relative;z-index:1}
+.lens{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.lens-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px 15px;box-shadow:var(--sh-sm)}
+.lens-no{width:30px;height:30px;border-radius:10px;background:var(--slate);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:17px;font-weight:900;margin-bottom:8px}
+.lens-title{font-size:14px;font-weight:900;color:var(--slate);margin-bottom:4px}.lens-desc{font-size:12.8px;color:var(--muted);line-height:1.58}
+
+/* coverage */
+.coverage-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.coverage-item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:start;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;box-shadow:var(--sh-sm);min-width:0;overflow-wrap:break-word;word-break:normal}
+.coverage-item .check{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--green-bg);border:1px solid var(--green-bdr);color:var(--green);font-weight:900;font-size:13px;flex-shrink:0}
+.coverage-item .text{font-size:13.3px;color:var(--sub);line-height:1.62;min-width:0}
+.coverage-section{margin-bottom:20px}.coverage-section h3{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+
+/* numbers */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:16px}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 18px;box-shadow:var(--sh-sm);min-width:0}
+.stat-num{font-family:var(--serif);font-size:30px;font-weight:900;letter-spacing:-.03em;color:var(--slate);line-height:1;margin-bottom:8px}.stat-label{font-size:12px;font-weight:900;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}.stat-desc{font-size:12.8px;color:var(--sub);line-height:1.55;margin-top:7px}
+.bar-list{display:flex;flex-direction:column;gap:10px}.bar-row{display:grid;grid-template-columns:132px minmax(0,1fr) 72px;gap:10px;align-items:center}.bar-name{font-size:13px;font-weight:800;color:var(--slate)}.bar-track{height:12px;background:var(--line2);border-radius:999px;overflow:hidden}.bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--blue),#22c55e)}.bar-val{font-size:12.5px;color:var(--muted);font-weight:800;text-align:right}.bar-row.green .bar-fill{background:linear-gradient(90deg,#16a34a,#86efac)}.bar-row.amber .bar-fill{background:linear-gradient(90deg,#d97706,#fcd34d)}.bar-row.violet .bar-fill{background:linear-gradient(90deg,#7c3aed,#c4b5fd)}
+
+/* tables */
+.table-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--line);background:#fff;box-shadow:var(--sh-sm);margin-bottom:14px}
+table{border-collapse:collapse;width:100%;min-width:760px;background:#fff}th,td{padding:10px 12px;border-bottom:1px solid var(--line2);font-size:13px;text-align:right;vertical-align:middle;white-space:nowrap}th:first-child,td:first-child{text-align:left;font-weight:900;color:var(--slate)}thead th{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:#f8fafc;font-weight:900}tbody tr:last-child td{border-bottom:0}tbody tr.total td{background:#f8fafc;font-weight:900}.table-note{font-size:12.5px;color:var(--muted);line-height:1.65;margin-top:8px}.table-note b{color:var(--slate)}
+.compact-table table{min-width:620px}.strategy-table table{min-width:880px}
+
+/* visual graph */
+.map-flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;align-items:stretch;margin:14px 0 18px}
+.flow-node{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:15px;box-shadow:var(--sh-sm);position:relative;min-width:0}.flow-node:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);font-weight:900;color:var(--faint);font-size:18px;z-index:2}.flow-title{font-size:13px;font-weight:900;color:var(--slate);margin-bottom:4px}.flow-desc{font-size:12.5px;color:var(--muted);line-height:1.55}.flow-node.center{background:var(--slate);color:#fff}.flow-node.center .flow-title{color:#fff}.flow-node.center .flow-desc{color:#cbd5e1}
+
+/* equations/cards */
+.logic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.logic-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;box-shadow:var(--sh-sm)}.logic-card .meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.equation{display:grid;grid-template-columns:minmax(92px,auto) 28px minmax(0,1fr);gap:8px;background:var(--soft);border:1px solid var(--line2);border-radius:var(--r);padding:12px 13px;margin:8px 0}.lhs{font-size:13px;color:var(--slate);font-weight:900;line-height:1.45}.op{font-family:var(--mono);font-weight:900;color:var(--faint);text-align:center}.rhs{font-size:13px;color:var(--sub);line-height:1.58;min-width:0}.memory{background:var(--green-bg);border:1px solid var(--green-bdr);border-radius:var(--r);padding:12px 14px;font-size:13.3px;color:#14532d;line-height:1.75;margin-top:12px}.memory b{color:var(--green)}
+
+/* traps */
+.trap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}.trap-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:18px;box-shadow:var(--sh-sm)}.trap-q{display:flex;gap:8px;align-items:center;margin-bottom:10px}.trap-title{font-size:14.5px;font-weight:900;color:var(--slate);line-height:1.4}.trap-answer{background:var(--green-bg);border:1px solid var(--green-bdr);border-radius:var(--r);padding:10px 12px;color:#14532d;font-size:13.2px;line-height:1.65;font-weight:700}.trap-wrong{margin-top:8px;background:var(--rose-bg);border:1px solid var(--rose-bdr);border-radius:var(--r);padding:10px 12px;color:#881337;font-size:13px;line-height:1.65}
+
+/* self test */
+.search-row{display:flex;gap:10px;margin-bottom:14px}.search{flex:1;min-width:0;border:1px solid var(--line);border-radius:var(--r);background:#fff;padding:12px 14px;font-size:14.5px;outline:none}.search:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.12)}.btn-small{border:1px solid var(--line);background:#fff;border-radius:var(--r);padding:11px 14px;font-size:13px;font-weight:900;color:var(--sub);cursor:pointer;white-space:nowrap}.btn-small:hover{background:var(--soft)}.quiz-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.qcard{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:18px;box-shadow:var(--sh-sm);min-width:0}.qsrc{font-size:11.5px;font-weight:900;color:var(--muted);letter-spacing:.06em;margin-bottom:8px;text-transform:uppercase}.qtext{font-size:14.5px;line-height:1.6;color:var(--slate);font-weight:800;margin-bottom:12px}.qbtn{border:1px solid var(--blue-bdr);background:var(--blue-bg);color:var(--blue);border-radius:var(--r);padding:8px 12px;font-size:13px;font-weight:900;cursor:pointer}.qanswer{display:none;margin-top:11px;background:var(--soft);border:1px solid var(--line2);border-radius:var(--r);padding:13px 14px;color:var(--sub);font-size:13.4px;line-height:1.78}.qanswer b{color:var(--slate)}
+
+/* compressed */
+.compressed{background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:24px;box-shadow:var(--sh)}.chant{background:linear-gradient(135deg,#0f172a,#1e293b);border-radius:var(--r-lg);padding:20px;color:#e2e8f0;margin-bottom:14px}.chant-title{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:900;color:#93c5fd;margin-bottom:8px}.chant-line{font-family:var(--serif);font-size:24px;font-weight:900;line-height:1.45;color:#fff}.memory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.memory-block{border-radius:var(--r);padding:15px;border:1px solid var(--line);background:#f8fafc}.memory-block .t{font-size:12px;letter-spacing:.07em;text-transform:uppercase;font-weight:900;color:var(--muted);margin-bottom:8px}.memory-block .b{font-size:13.5px;color:var(--sub);line-height:1.72}.number-chip{display:inline-flex;margin:3px 4px 3px 0;padding:4px 9px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:12.5px;font-weight:900;color:var(--slate)}
+
+/* responsive */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}.hero-side{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.overview-hero{grid-template-columns:1fr}.grid-3,.grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}.logic-grid,.quiz-grid,.memory-grid{grid-template-columns:1fr}.map-flow{grid-template-columns:1fr}.flow-node:not(:last-child)::after{content:"↓";right:50%;top:auto;bottom:-18px;transform:translateX(50%);}.panel-head{align-items:flex-start;flex-direction:column}.head-desc{text-align:left;max-width:none}.nav{border-radius:var(--r-lg)}
+}
+@media(max-width:560px){
+  .wrap{padding:16px 12px 64px}.hero-main{padding:22px 20px;border-radius:var(--r-lg)}.hero-side{grid-template-columns:1fr}.grid-2,.grid-3,.grid-4,.lens{grid-template-columns:1fr}.bar-row{grid-template-columns:100px minmax(0,1fr) 62px;gap:8px}.stat-num{font-size:27px}.tab{padding:9px 13px;font-size:12.5px}.equation{grid-template-columns:1fr;gap:3px}.op{display:none;text-align:left}.search-row{flex-wrap:wrap}.btn-small{flex:1}.qbtn{width:100%}.compressed{padding:18px}.chant-line{font-size:20px}
+}
+@media print{
+  body{background:#fff}.nav,.search-row,.qbtn{display:none!important}.wrap{max-width:none;padding:0}.panel{display:block!important;page-break-after:always}.panel:last-child{page-break-after:auto}.card,.stat,.logic-card,.trap-card,.qcard,.compressed{box-shadow:none!important;break-inside:avoid}.hero{grid-template-columns:1fr}.qanswer{display:block!important}.table-wrap{box-shadow:none!important}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <div class="hero-main">
+      <div class="pills">
+        <span class="pill">📗 ESG Chapter 2</span>
+        <span class="pill">Module 1</span>
+        <span class="pill">LO 2.1.1</span>
+        <span class="pill">逻辑等式记忆</span>
+      </div>
+      <h1>The ESG Market<br/>ESG Investing in Numbers</h1>
+      <p class="lead">本模块只覆盖 2.1.1：用 geography、strategy、investor type、asset class 四个切面解释 ESG investing 的 size and scope。记忆方法不是硬背数字，而是先把题目拆开，让每个词领走自己的数字。</p>
+    </div>
+    <aside class="hero-side">
+      <div class="side-card">
+        <div class="side-label">Hidden Line</div>
+        <div class="eq-main">市场规模不是一个数字，<br/>而是四个方向的坐标。</div>
+        <div class="side-note"><b>主逻辑：</b>ESG Market Size == 在哪儿 + 用什么策略 + 谁的钱 + 买什么资产。</div>
+      </div>
+      <div class="side-card">
+        <div class="side-label">Exam Eyes</div>
+        <div class="small"><b>最高频陷阱：</b>Europe 是绝对 AUM 最大，但 2022 相对总资产占比最高的是 Canada；2022 最大策略是 corporate engagement and shareholder action，不是 ESG integration。</div>
+      </div>
+    </aside>
+  </section>
+
+  <nav class="nav" aria-label="Module navigation">
+    <button class="tab active" data-tab="overview">总览</button>
+    <button class="tab" data-tab="coverage">覆盖清单</button>
+    <button class="tab" data-tab="numbers">数字地图</button>
+    <button class="tab" data-tab="geo">Geography</button>
+    <button class="tab" data-tab="strategy">Strategy</button>
+    <button class="tab" data-tab="investor">Investor & Asset</button>
+    <button class="tab" data-tab="logic">逻辑卡片</button>
+    <button class="tab" data-tab="traps">题眼陷阱</button>
+    <button class="tab" data-tab="review">自测</button>
+    <button class="tab" data-tab="compressed">压缩背诵</button>
+  </nav>
+
+  <!-- OVERVIEW -->
+  <section id="overview" class="panel active">
+    <div class="panel-head">
+      <div><div class="eyebrow">Chapter Map · 2.1.1</div><h2>先拆题目，再背数字</h2></div>
+      <div class="head-desc">题目要求解释 size and scope in relation to geography, strategy, investor type, and asset class。四个词就是答案目录。</div>
+    </div>
+    <div class="overview-hero">
+      <div class="big-equation">
+        <div class="label">Logic Equation</div>
+        <div class="formula">ESG Investing in Numbers<br/>== Geography + Strategy + Investor Type + Asset Class</div>
+        <div class="explain">先问「这个市场有多大」；再按四个方向切开：在哪些地区、通过哪些投资策略、由哪类投资者持有、最终配置到什么资产类别。</div>
+      </div>
+      <div class="lens">
+        <div class="lens-card"><div class="lens-no">1</div><div class="lens-title">Geography</div><div class="lens-desc">绝对规模看 Europe / US；相对渗透率看 Canada。</div></div>
+        <div class="lens-card"><div class="lens-no">2</div><div class="lens-title">Strategy</div><div class="lens-desc">2022 最大：corporate engagement and shareholder action。</div></div>
+        <div class="lens-card"><div class="lens-no">3</div><div class="lens-title">Investor Type</div><div class="lens-desc">Institutional 仍主导；retail share 稳步上升。</div></div>
+        <div class="lens-card"><div class="lens-no">4</div><div class="lens-title">Asset Class</div><div class="lens-desc">Public equity 最大，fixed income 第二。</div></div>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="card"><span class="tag tag-blue">口径</span><h3>定义多 → 数据口径多</h3><p class="small">Responsible investment 有多种定义，因此市场数据存在范围差异。教材采用 GSIA 作为最全面的市场综述之一。</p></div>
+      <div class="card"><span class="tag tag-green">总量</span><h3>USD30.3 trillion</h3><p class="small">2022 年五大市场 sustainable investing assets 为 USD30.3 trillion；表面上两年下降 14%，主要源自美国计量方法变化。</p></div>
+      <div class="card"><span class="tag tag-amber">陷阱</span><h3>最大 ≠ 最高占比</h3><p class="small">Europe 管理全球 domiciled sustainable/responsible assets 的最高比例，但 2022 相对总资产占比最高的是 Canada。</p></div>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section id="coverage" class="panel">
+    <div class="panel-head">
+      <div><div class="eyebrow">Coverage Checklist</div><h2>2.1.1 知识点覆盖清单</h2></div>
+      <div class="head-desc">按原文顺序和考试题眼整理；覆盖概念口径、地区、策略、投资者类型、资产类别和官方题陷阱。</div>
+    </div>
+
+    <div class="coverage-section">
+      <h3><span class="tag tag-blue">A</span> 口径与总量</h3>
+      <div class="coverage-grid">
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Responsible investment 定义很多，因此 responsible investment market 的数据存在不同范围。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">GSIA 是最全面的市场综述之一。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">GSIA 每两年研究五大市场：Europe、United States、Japan、Canada、Australia/New Zealand。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">教材引用的最近一期为覆盖 2022 data 的 GSIA 2023 报告。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">2022 年初五大市场 sustainable investing assets 为 USD30.3 trillion。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">两年表面下降 14%，主要因为美国 measurement methodology 改变。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">除 United States 与 Canada 外，其他地区 ESG investing amount 均增加。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">全球 domiciled sustainable/responsible investing assets：Europe 46%，United States 28%，仍为最高比例。</div></div>
+      </div>
+    </div>
+
+    <div class="coverage-section">
+      <h3><span class="tag tag-green">B</span> Geography：地区规模与渗透率</h3>
+      <div class="coverage-grid">
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Exhibit 1 覆盖 2012、2014、2016、2018、2020、2022 各地区 ESG assets。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">2022 绝对 AUM 排名：Europe、United States、Japan、Canada、Australia/New Zealand。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Europe 2022：USD14,054bn；United States 2022：USD8,400bn；Japan 2022：USD4,289bn。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Canada 2022：USD2,358bn；Australia/New Zealand 2022：USD1,220bn。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Responsible investment 在各地区 managed assets 中都占有 sizable share。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">2022 相对总资产占比范围：United States 13% 到 Canada 47%。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">2022 各地区占比：Canada 47%、Australia/New Zealand 43%、Europe 38%、Japan 34%、United States 13%。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">多数地区 sustainable investing / total managed assets 的比例下降，US 与 Canada 因 methodology 变化下降最明显。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Europe、Australia/New Zealand、Japan 是近期趋势例外，比例有所增加。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Exhibit 2 注明：2020 或 2022 多地有 significant methodological changes，历史比较需谨慎。</div></div>
+      </div>
+    </div>
+
+    <div class="coverage-section">
+      <h3><span class="tag tag-amber">C</span> Strategy：策略规模与增长</h3>
+      <div class="coverage-grid">
+        <div class="coverage-item"><div class="check">✓</div><div class="text">2022 strategy 数据排除 Europe，因为 GSIA 2023 报告准备时 Europe strategy data unavailable。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">2022 最大 sustainable investment strategy：corporate engagement and shareholder action，USD8.0tn AUM。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">第二大策略：ESG integration，USD5.6tn AUM。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">第三大策略：negative/exclusionary screening；其中 Japan AUM 最高，为 USD2.1tn。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Japan 在 sustainability-themed investing、norms-based screening、ESG integration、corporate engagement/shareholder action 上均拥有最高 AUM。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Corporate engagement/shareholder action 是 Japan 与 United States 的 predominant strategy。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Japan corporate engagement/shareholder action：USD3.7tn；United States：USD2.9tn。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">2016–2022 期间 ESG integration strategy 增长最大，主要由 US market 驱动。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">ESG integration 的增长被认为与已有基金 relabeling / recycling 有关，并引发 greenwashing 争论。</div></div>
+      </div>
+    </div>
+
+    <div class="coverage-section">
+      <h3><span class="tag tag-violet">D</span> Investor Type：谁的钱</h3>
+      <div class="coverage-grid">
+        <div class="coverage-item"><div class="check">✓</div><div class="text">专业资产管理人管理的投资常按 retail 与 institutional 分类。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Retail = investment by individuals；Institutional = investment firms。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Institutional investors 倾向于主导金融市场。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Retail investors 对 responsible investing 的兴趣稳步增长。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">2012：institutional 89%，retail 11%。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">2018：retail portion 增长到 one quarter，即 25%。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Exhibit 5：2016 为 retail 20% / institutional 80%；2018 与 2020 均为 retail 25% / institutional 75%。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Exhibit 5 注明：2020 未收集 Australasia 或 Europe 数据；2022 完全未报告该分类数据。</div></div>
+      </div>
+    </div>
+
+    <div class="coverage-section">
+      <h3><span class="tag tag-teal">E</span> Asset Class：买什么资产</h3>
+      <div class="coverage-grid">
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Responsible investment 横跨 diversified investment portfolios 中常见的资产类别。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">GSIA 最后一次报告 asset class allocation：2018，覆盖 Europe、United States、Japan、Canada。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Public equities 51%，为最大资产类别。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Fixed income 36%，为第二大资产类别。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Real estate/property 与 private equity/venture capital 各为 3%。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Other 7%，包括 hedge funds、cash/depository vehicles、commodities、infrastructure。</div></div>
+      </div>
+    </div>
+
+    <div class="coverage-section">
+      <h3><span class="tag tag-rose">F</span> 官方题眼</h3>
+      <div class="coverage-grid">
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Practice Q1：highest allocation asset class = Listed equity / public equity。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Practice Q11：highest proportion relative to total managed assets in 2022 = Canada。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Practice Q12：US 最接近追随 Japan 的策略 = corporate engagement and shareholder action。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Practice Q13：retail investors’ share 相对 institutional investors = increased。</div></div>
+        <div class="coverage-item"><div class="check">✓</div><div class="text">Practice Q16：2022 GSIA 最 popular strategy = corporate engagement and shareholder action。</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <section id="numbers" class="panel">
+    <div class="panel-head">
+      <div><div class="eyebrow">Number Map</div><h2>先记这 10 个数字</h2></div>
+      <div class="head-desc">这页是数字记忆入口：每个数字只放在它所属的切面里，避免把所有数字混在一起背。</div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-label">Market Size</div><div class="stat-num">30.3T</div><div class="stat-desc">2022 年初五大市场 sustainable investing assets。</div></div>
+      <div class="stat"><div class="stat-label">Apparent Decline</div><div class="stat-num">14%</div><div class="stat-desc">两年表面下降，主要由美国计量方法改变造成。</div></div>
+      <div class="stat"><div class="stat-label">Domiciled Assets</div><div class="stat-num">46%</div><div class="stat-desc">Europe 管理全球 sustainable/responsible assets 的最高比例。</div></div>
+      <div class="stat"><div class="stat-label">Domiciled Assets</div><div class="stat-num">28%</div><div class="stat-desc">United States 位列第二。</div></div>
+      <div class="stat"><div class="stat-label">Relative Share</div><div class="stat-num">47%</div><div class="stat-desc">Canada：2022 相对总 managed assets 占比最高。</div></div>
+      <div class="stat"><div class="stat-label">Relative Share</div><div class="stat-num">13%</div><div class="stat-desc">United States：2022 相对总 managed assets 占比最低。</div></div>
+      <div class="stat"><div class="stat-label">Top Strategy</div><div class="stat-num">8.0T</div><div class="stat-desc">Corporate engagement and shareholder action。</div></div>
+      <div class="stat"><div class="stat-label">No.2 Strategy</div><div class="stat-num">5.6T</div><div class="stat-desc">ESG integration。</div></div>
+      <div class="stat"><div class="stat-label">Top Asset Class</div><div class="stat-num">51%</div><div class="stat-desc">Public equities，2018 asset class allocation。</div></div>
+      <div class="stat"><div class="stat-label">No.2 Asset Class</div><div class="stat-num">36%</div><div class="stat-desc">Fixed income。</div></div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>2022 绝对规模：Europe 最大</h3>
+        <div class="bar-list">
+          <div class="bar-row"><div class="bar-name">Europe</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-val">14,054</div></div>
+          <div class="bar-row"><div class="bar-name">United States</div><div class="bar-track"><div class="bar-fill" style="width:60%"></div></div><div class="bar-val">8,400</div></div>
+          <div class="bar-row"><div class="bar-name">Japan</div><div class="bar-track"><div class="bar-fill" style="width:31%"></div></div><div class="bar-val">4,289</div></div>
+          <div class="bar-row"><div class="bar-name">Canada</div><div class="bar-track"><div class="bar-fill" style="width:17%"></div></div><div class="bar-val">2,358</div></div>
+          <div class="bar-row"><div class="bar-name">Aust/NZ</div><div class="bar-track"><div class="bar-fill" style="width:9%"></div></div><div class="bar-val">1,220</div></div>
+        </div>
+        <div class="table-note">单位：USD billions。</div>
+      </div>
+      <div class="card">
+        <h3>2022 相对渗透率：Canada 最大</h3>
+        <div class="bar-list">
+          <div class="bar-row green"><div class="bar-name">Canada</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-val">47%</div></div>
+          <div class="bar-row green"><div class="bar-name">Aust/NZ</div><div class="bar-track"><div class="bar-fill" style="width:91%"></div></div><div class="bar-val">43%</div></div>
+          <div class="bar-row green"><div class="bar-name">Europe</div><div class="bar-track"><div class="bar-fill" style="width:81%"></div></div><div class="bar-val">38%</div></div>
+          <div class="bar-row green"><div class="bar-name">Japan</div><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><div class="bar-val">34%</div></div>
+          <div class="bar-row green"><div class="bar-name">United States</div><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div><div class="bar-val">13%</div></div>
+        </div>
+        <div class="table-note">考点：不要把“绝对规模最大”误选成“占比最高”。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GEOGRAPHY -->
+  <section id="geo" class="panel">
+    <div class="panel-head">
+      <div><div class="eyebrow">Geography</div><h2>地区：绝对规模 vs 相对占比</h2></div>
+      <div class="head-desc">Geography 这块有两个维度：absolute AUM 和 relative share。考试常用这两个维度互相干扰。</div>
+    </div>
+    <div class="map-flow">
+      <div class="flow-node center"><div class="flow-title">Geography</div><div class="flow-desc">同一个地区问题，先判断题目问的是规模还是占比。</div></div>
+      <div class="flow-node"><div class="flow-title">Absolute AUM</div><div class="flow-desc">Europe 2022 最大：USD14,054bn。</div></div>
+      <div class="flow-node"><div class="flow-title">Domicile Share</div><div class="flow-desc">Europe 46%，US 28%。</div></div>
+      <div class="flow-node"><div class="flow-title">Relative Share</div><div class="flow-desc">Canada 47% 最高，US 13% 最低。</div></div>
+      <div class="flow-node"><div class="flow-title">Methodology</div><div class="flow-desc">2020/2022 口径变化，历史比较要谨慎。</div></div>
+    </div>
+
+    <div class="card">
+      <h3>Exhibit 1 · Growth of ESG Assets by Country and Region</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Region</th><th>2012</th><th>2014</th><th>2016</th><th>2018</th><th>2020</th><th>2022</th></tr></thead>
+          <tbody>
+            <tr><td>Europe</td><td>8,758</td><td>10,775</td><td>12,040</td><td>14,075</td><td>12,017</td><td>14,054</td></tr>
+            <tr><td>United States</td><td>3,740</td><td>6,572</td><td>8,723</td><td>11,995</td><td>17,081</td><td>8,400</td></tr>
+            <tr><td>Japan</td><td>—</td><td>7</td><td>474</td><td>2,180</td><td>2,974</td><td>4,289</td></tr>
+            <tr><td>Asia excluding Japan</td><td>—</td><td>45</td><td>52</td><td>—</td><td>—</td><td>—</td></tr>
+            <tr><td>Asia including Japan</td><td>40</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+            <tr><td>Canada</td><td>589</td><td>729</td><td>1,086</td><td>1,699</td><td>2,423</td><td>2,358</td></tr>
+            <tr><td>Australia/New Zealand</td><td>134</td><td>148</td><td>516</td><td>734</td><td>906</td><td>1,220</td></tr>
+            <tr class="total"><td>Total</td><td>13,261</td><td>18,276</td><td>22,891</td><td>30,683</td><td>35,301</td><td>30,321</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-note"><b>Source logic:</b> 2022 总量是 USD30.321bn ≈ USD30.3tn；2020 与 2022 因计量方法变化，尤其美国，不能机械比较。</div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card compact-table">
+        <h3>Exhibit 2 · Sustainable Investing / Total Managed Assets</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Region</th><th>2014</th><th>2016</th><th>2018</th><th>2020</th><th>2022</th></tr></thead>
+            <tbody>
+              <tr><td>United States</td><td>18%</td><td>22%</td><td>26%</td><td>33%</td><td>13%</td></tr>
+              <tr><td>Europe</td><td>59%</td><td>53%</td><td>49%</td><td>42%</td><td>38%</td></tr>
+              <tr><td>Canada</td><td>31%</td><td>38%</td><td>51%</td><td>62%</td><td>47%</td></tr>
+              <tr><td>Australia/New Zealand</td><td>17%</td><td>51%</td><td>63%</td><td>38%</td><td>43%</td></tr>
+              <tr><td>Japan</td><td>—</td><td>3%</td><td>18%</td><td>24%</td><td>34%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-note">记忆顺序：Canada 47 > Aust/NZ 43 > Europe 38 > Japan 34 > US 13。</div>
+      </div>
+      <div class="card dark">
+        <span class="tag tag-amber">题眼</span>
+        <h3>Geography 的两组答案</h3>
+        <p class="small" style="color:#cbd5e1"><b style="color:#fff">问 absolute size：</b>选 Europe。<br/><b style="color:#fff">问 proportion relative to total managed assets：</b>选 Canada。<br/><b style="color:#fff">问 apparent decline：</b>不要理解成全球全面退潮，重点是 US measurement methodology change。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRATEGY -->
+  <section id="strategy" class="panel">
+    <div class="panel-head">
+      <div><div class="eyebrow">Strategy</div><h2>策略：最大、第二、第三、增长最快</h2></div>
+      <div class="head-desc">Strategy 不只背排名，还要区分 2022 AUM 最大和 2016–2022 增长最大。</div>
+    </div>
+    <div class="grid-4" style="margin-bottom:16px">
+      <div class="stat"><div class="stat-label">Largest 2022</div><div class="stat-num">8.0T</div><div class="stat-desc">Corporate engagement and shareholder action。</div></div>
+      <div class="stat"><div class="stat-label">Second 2022</div><div class="stat-num">5.6T</div><div class="stat-desc">ESG integration。</div></div>
+      <div class="stat"><div class="stat-label">Third 2022</div><div class="stat-num">3.8T</div><div class="stat-desc">Negative/exclusionary screening。</div></div>
+      <div class="stat"><div class="stat-label">Largest Growth</div><div class="stat-num">ESG</div><div class="stat-desc">2016–2022 增长最大的是 ESG integration。</div></div>
+    </div>
+    <div class="card strategy-table">
+      <h3>Exhibit 3 · Responsible Investment Assets by Strategy, Country, and Region in 2022</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Strategy</th><th>United States</th><th>Canada</th><th>Australia/New Zealand</th><th>Japan</th><th>Total / 约数</th></tr></thead>
+          <tbody>
+            <tr><td>Corporate engagement & shareholder action</td><td>2,977</td><td>689</td><td>641</td><td>3,747</td><td>8,054 ≈ 8.0tn</td></tr>
+            <tr><td>ESG integration</td><td>693</td><td>767</td><td>638</td><td>3,491</td><td>5,589 ≈ 5.6tn</td></tr>
+            <tr><td>Negative/exclusionary screening</td><td>724</td><td>487</td><td>517</td><td>2,112</td><td>3,840</td></tr>
+            <tr><td>Norms-based screening</td><td>—</td><td>222</td><td>100</td><td>1,485</td><td>1,807</td></tr>
+            <tr><td>Sustainability-themed investing</td><td>136</td><td>77</td><td>144</td><td>240</td><td>≈ 598</td></tr>
+            <tr><td>Positive/best-in-class screening</td><td>264</td><td>34</td><td>75</td><td>201</td><td>≈ 574</td></tr>
+            <tr><td>Impact/community investing</td><td>19</td><td>7</td><td>25</td><td>4</td><td>≈ 55</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-note">单位：USD billions。Europe strategy data 在 2023 GSIA report 准备时 unavailable，因此本表排除 Europe。部分小策略数值按图表读取，四舍五入可能导致 total 略有差异。</div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card compact-table">
+        <h3>Exhibit 4 · Global Growth of Sustainable Investing Strategies</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Strategy</th><th>2016</th><th>2018</th><th>2020</th><th>2022</th></tr></thead>
+            <tbody>
+              <tr><td>Corporate engagement & shareholder action</td><td>8,385</td><td>9,835</td><td>10,504</td><td>8,053</td></tr>
+              <tr><td>ESG integration</td><td>10,353</td><td>17,544</td><td>25,195</td><td>5,588</td></tr>
+              <tr><td>Negative/exclusionary screening</td><td>15,064</td><td>19,771</td><td>15,030</td><td>3,840</td></tr>
+              <tr><td>Norms-based screening</td><td>6,195</td><td>4,679</td><td>4,140</td><td>1,807</td></tr>
+              <tr><td>Sustainability-themed investing</td><td>276</td><td>1,018</td><td>1,948</td><td>598</td></tr>
+              <tr><td>Positive/best-in-class screening</td><td>818</td><td>1,842</td><td>1,384</td><td>574</td></tr>
+              <tr><td>Impact/community investing</td><td>248</td><td>444</td><td>352</td><td>55</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag tag-rose">Greenwashing Link</span>
+        <h3>增长最快为什么也可能有争议？</h3>
+        <p class="small">原文说 2016–2022 ESG integration 增长最大，主要由美国市场驱动；轶事上，这一增长被归因于 fund managers 对已有基金的 relabeling 或 recycling，因此引发是否增加 greenwashing 的开放争论。</p>
+        <div class="memory"><b>🪝 记忆钩子：</b>Strategy 排名要分三件事：<b>2022 最大</b>是 engagement；<b>第二大</b>是 integration；<b>增长争议</b>也在 integration。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTOR & ASSET -->
+  <section id="investor" class="panel">
+    <div class="panel-head">
+      <div><div class="eyebrow">Investor Type & Asset Class</div><h2>谁的钱，买什么资产</h2></div>
+      <div class="head-desc">Investor type 看 retail/institutional 的变化；asset class 看 ESG 配置与传统多资产组合的贴合。</div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Investor Type：Institutional 主导，Retail 上升</h3>
+        <div class="bar-list">
+          <div class="bar-row violet"><div class="bar-name">2012 Retail</div><div class="bar-track"><div class="bar-fill" style="width:44%"></div></div><div class="bar-val">11%</div></div>
+          <div class="bar-row violet"><div class="bar-name">2016 Retail</div><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><div class="bar-val">20%</div></div>
+          <div class="bar-row violet"><div class="bar-name">2018 Retail</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-val">25%</div></div>
+          <div class="bar-row violet"><div class="bar-name">2020 Retail</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-val">25%</div></div>
+        </div>
+        <div class="table-note">2012 institutional 89% / retail 11%；2018 retail 已达 one quarter。2020 数据未收集 Australasia 或 Europe，2022 完全未报告。</div>
+      </div>
+      <div class="card">
+        <h3>Asset Class：Public equity 最大</h3>
+        <div class="bar-list">
+          <div class="bar-row amber"><div class="bar-name">Public equity</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-val">51%</div></div>
+          <div class="bar-row amber"><div class="bar-name">Fixed income</div><div class="bar-track"><div class="bar-fill" style="width:71%"></div></div><div class="bar-val">36%</div></div>
+          <div class="bar-row amber"><div class="bar-name">Real estate</div><div class="bar-track"><div class="bar-fill" style="width:6%"></div></div><div class="bar-val">3%</div></div>
+          <div class="bar-row amber"><div class="bar-name">PE / VC</div><div class="bar-track"><div class="bar-fill" style="width:6%"></div></div><div class="bar-val">3%</div></div>
+          <div class="bar-row amber"><div class="bar-name">Other</div><div class="bar-track"><div class="bar-fill" style="width:14%"></div></div><div class="bar-val">7%</div></div>
+        </div>
+        <div class="table-note">Other 包括 hedge funds、cash/depository vehicles、commodities、infrastructure。</div>
+      </div>
+    </div>
+    <div class="grid-3" style="margin-top:16px">
+      <div class="card"><span class="tag tag-violet">Investor</span><h3>Retail share 增加</h3><p class="small">Q13 的答案是 increased；不要因为 institutional 仍主导而误以为 retail share 没变。</p></div>
+      <div class="card"><span class="tag tag-amber">Asset</span><h3>Listed equity / public equity</h3><p class="small">Q1 的答案是 listed equity；fixed income 是第二大，不是最大。</p></div>
+      <div class="card"><span class="tag tag-teal">Scope</span><h3>跨资产类别</h3><p class="small">Responsible investment extends across diversified portfolios，但 2018 数据里 public equities 与 fixed income 占压倒性大头。</p></div>
+    </div>
+  </section>
+
+  <!-- LOGIC CARDS -->
+  <section id="logic" class="panel">
+    <div class="panel-head">
+      <div><div class="eyebrow">Logic Equation Cards</div><h2>用 skill 的方式记：拆题目，让题目领走答案</h2></div>
+      <div class="head-desc">每张卡片包含：原文问题 → 隐藏线 → 逻辑等式 → 记忆钩子。</div>
+    </div>
+    <div class="logic-grid">
+      <article class="logic-card">
+        <div class="meta"><span class="tag tag-dark">题目拆解</span><span class="tag tag-blue">主公式</span></div>
+        <h3>1. 2.1.1 的题目本身就是目录</h3>
+        <div class="equation"><div class="lhs">Size</div><div class="op">==</div><div class="rhs">USD30.3tn + apparent 14% decline + methodology caution</div></div>
+        <div class="equation"><div class="lhs">Scope</div><div class="op">==</div><div class="rhs">Geography + Strategy + Investor Type + Asset Class</div></div>
+        <div class="memory"><b>🪝</b> 看到 2.1.1，先不要背数字，先问：它问“范围”从哪四个方向看？四个方向就是四个抽屉。</div>
+      </article>
+      <article class="logic-card">
+        <div class="meta"><span class="tag tag-green">数据口径</span><span class="tag tag-rose">陷阱</span></div>
+        <h3>2. 数字会变，不一定是市场真的缩小</h3>
+        <div class="equation"><div class="lhs">Apparent decline</div><div class="op">==</div><div class="rhs">14% drop in two years − primarily US methodology change</div></div>
+        <div class="equation"><div class="lhs">真实阅读</div><div class="op">==</div><div class="rhs">US/Canada 下降 + 其他地区增加 + 2020/2022 methodological changes</div></div>
+        <div class="memory"><b>🪝</b> 这不是“ESG 崩了”，而是“尺子换了”。看到 decline，要立刻想到 methodology。</div>
+      </article>
+      <article class="logic-card">
+        <div class="meta"><span class="tag tag-amber">Geography</span></div>
+        <h3>3. 地区题必须先分清问法</h3>
+        <div class="equation"><div class="lhs">Absolute AUM</div><div class="op">==</div><div class="rhs">Europe highest, then United States</div></div>
+        <div class="equation"><div class="lhs">Relative share</div><div class="op">==</div><div class="rhs">Canada highest, United States lowest</div></div>
+        <div class="memory"><b>🪝</b> 绝对规模看“谁家钱最多”；相对占比看“谁家 ESG 渗透最深”。</div>
+      </article>
+      <article class="logic-card">
+        <div class="meta"><span class="tag tag-violet">Strategy</span></div>
+        <h3>4. 策略题分三层</h3>
+        <div class="equation"><div class="lhs">2022 最大</div><div class="op">==</div><div class="rhs">Corporate engagement and shareholder action</div></div>
+        <div class="equation"><div class="lhs">2022 第二</div><div class="op">==</div><div class="rhs">ESG integration</div></div>
+        <div class="equation"><div class="lhs">2016–22 增长</div><div class="op">==</div><div class="rhs">ESG integration grew the most, mostly US-driven</div></div>
+        <div class="memory"><b>🪝</b> “最大”和“增长最大”不是同一个问题：当前冠军是 engagement，增长争议是 integration。</div>
+      </article>
+      <article class="logic-card">
+        <div class="meta"><span class="tag tag-teal">Japan</span><span class="tag tag-blue">US</span></div>
+        <h3>5. Japan 是策略图里的高柱子</h3>
+        <div class="equation"><div class="lhs">Japan</div><div class="op">==</div><div class="rhs">在 negative/exclusionary、sustainability-themed、norms-based、ESG integration、engagement 上 AUM 最高</div></div>
+        <div class="equation"><div class="lhs">US follows Japan</div><div class="op">==</div><div class="rhs">Corporate engagement/shareholder action 最接近</div></div>
+        <div class="memory"><b>🪝</b> 图上大多数最高柱都在 Japan；但 US 最接近 Japan 的是 engagement 那根柱。</div>
+      </article>
+      <article class="logic-card">
+        <div class="meta"><span class="tag tag-violet">Investor Type</span></div>
+        <h3>6. Institutional 仍主导，Retail 在长大</h3>
+        <div class="equation"><div class="lhs">Investor type</div><div class="op">==</div><div class="rhs">Institutional dominates + retail interest steadily grows</div></div>
+        <div class="equation"><div class="lhs">Retail</div><div class="op">==</div><div class="rhs">11% in 2012 → 25% in 2018 / 2020</div></div>
+        <div class="memory"><b>🪝</b> 不要被“institutional dominates”骗了，题目问 share 变化时答案是 retail increased。</div>
+      </article>
+      <article class="logic-card">
+        <div class="meta"><span class="tag tag-amber">Asset Class</span></div>
+        <h3>7. ESG 的资产类别像传统组合：股票先，债券后</h3>
+        <div class="equation"><div class="lhs">Asset class</div><div class="op">==</div><div class="rhs">Public equity 51% + fixed income 36% + alternatives smaller</div></div>
+        <div class="equation"><div class="lhs">Other</div><div class="op">==</div><div class="rhs">hedge funds + cash/depository + commodities + infrastructure</div></div>
+        <div class="memory"><b>🪝</b> 如果问 highest allocation，选 listed equity；fixed income 是第二，不要抢第一。</div>
+      </article>
+      <article class="logic-card">
+        <div class="meta"><span class="tag tag-rose">考前总式</span></div>
+        <h3>8. 一句话背完 2.1.1</h3>
+        <div class="equation"><div class="lhs">2.1.1</div><div class="op">==</div><div class="rhs">USD30.3tn 的 ESG 市场，用四个镜头看：Europe 规模大、Canada 渗透高、engagement 策略最大、institutional 主导但 retail 上升、public equity 最大。</div></div>
+        <div class="memory"><b>🪝</b> 你只要把四个镜头拿稳，数字就不会乱。</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- TRAPS -->
+  <section id="traps" class="panel">
+    <div class="panel-head">
+      <div><div class="eyebrow">Exam Traps</div><h2>官方题眼陷阱</h2></div>
+      <div class="head-desc">对应 Chapter 2 practice problems 中和 2.1.1 直接相关的题目。</div>
+    </div>
+    <div class="trap-grid">
+      <div class="trap-card"><div class="trap-q"><span class="tag tag-dark">Q1</span><div class="trap-title">Which asset class has the highest allocation?</div></div><div class="trap-answer">✅ Listed equity / public equity。</div><div class="trap-wrong">❌ Fixed income 是第二大；real estate 只有 3%。</div></div>
+      <div class="trap-card"><div class="trap-q"><span class="tag tag-dark">Q11</span><div class="trap-title">Highest proportion relative to total managed assets in 2022?</div></div><div class="trap-answer">✅ Canada，47%。</div><div class="trap-wrong">❌ Europe 绝对 AUM 大，但相对占比不是最高。</div></div>
+      <div class="trap-card"><div class="trap-q"><span class="tag tag-dark">Q12</span><div class="trap-title">US most likely follows Japan's lead on which strategy?</div></div><div class="trap-answer">✅ Corporate engagement and shareholder action。</div><div class="trap-wrong">❌ Negative/exclusionary 与 ESG integration 上 US 与 Japan 差距更大。</div></div>
+      <div class="trap-card"><div class="trap-q"><span class="tag tag-dark">Q13</span><div class="trap-title">Retail share relative to institutional investors has…?</div></div><div class="trap-answer">✅ Increased。</div><div class="trap-wrong">❌ Institutional dominates 不等于 retail 没增长。</div></div>
+      <div class="trap-card"><div class="trap-q"><span class="tag tag-dark">Q16</span><div class="trap-title">Most popular strategy according to 2022 GSIA data?</div></div><div class="trap-answer">✅ Corporate engagement and shareholder action。</div><div class="trap-wrong">❌ ESG integration 是第二大，也是增长争议所在。</div></div>
+      <div class="trap-card"><div class="trap-q"><span class="tag tag-rose">Meta</span><div class="trap-title">“largest growth” 与 “largest strategy” 分开判断</div></div><div class="trap-answer">✅ Largest strategy 2022 = engagement；largest growth 2016–22 = integration。</div><div class="trap-wrong">❌ 把两个“largest”混成一个，是本节最典型失误。</div></div>
+    </div>
+  </section>
+
+  <!-- REVIEW -->
+  <section id="review" class="panel">
+    <div class="panel-head">
+      <div><div class="eyebrow">Self Test</div><h2>自测题</h2></div>
+      <div class="head-desc">先看题眼，再展开答案。搜索可按数字、地区、策略或题号过滤。</div>
+    </div>
+    <div class="search-row">
+      <input id="search" class="search" type="search" placeholder="搜索：Canada · 30.3 · engagement · retail · public equity · Q11…" />
+      <button id="showAll" class="btn-small">全部展开</button>
+      <button id="hideAll" class="btn-small">全部收起</button>
+    </div>
+    <div id="quizGrid" class="quiz-grid">
+      <div class="qcard" data-text="Q1 asset class listed equity public equity fixed income"><div class="qsrc">Q1 · Asset class</div><div class="qtext">Which asset class has the highest allocation of global ESG integrated investment strategies?</div><button class="qbtn">显示答案</button><div class="qanswer"><b>Listed equity / public equity。</b>2018 数据中 public equities 为 51%，fixed income 为 36%。</div></div>
+      <div class="qcard" data-text="Q11 Canada highest proportion 2022 total managed assets"><div class="qsrc">Q11 · Geography</div><div class="qtext">Which region had the highest reported proportion of sustainable investing in 2022 relative to total managed assets?</div><button class="qbtn">显示答案</button><div class="qanswer"><b>Canada。</b>2022 年 Canada 为 47%，高于 Australia/New Zealand 43%、Europe 38%、Japan 34%、United States 13%。</div></div>
+      <div class="qcard" data-text="Q16 strategy corporate engagement shareholder action ESG integration"><div class="qsrc">Q16 · Strategy</div><div class="qtext">Which investment strategy is most popular according to the 2022 GSIA data?</div><button class="qbtn">显示答案</button><div class="qanswer"><b>Corporate engagement and shareholder action。</b>2022 AUM 约 USD8.0tn，ESG integration 为第二大，约 USD5.6tn。</div></div>
+      <div class="qcard" data-text="Q13 retail institutional increased"><div class="qsrc">Q13 · Investor type</div><div class="qtext">Relative to institutional investors, retail investors’ share of sustainable investing assets has changed how?</div><button class="qbtn">显示答案</button><div class="qanswer"><b>Increased。</b>2012 年 retail 为 11%，2018 年达到 25%。</div></div>
+      <div class="qcard" data-text="Q12 United States Japan lead corporate engagement"><div class="qsrc">Q12 · Strategy comparison</div><div class="qtext">In contrast to Japan, which sustainable investing strategy does the US market appear most likely to follow Japan's lead on in terms of AUM?</div><button class="qbtn">显示答案</button><div class="qanswer"><b>Corporate engagement and shareholder action。</b>Japan 为 USD3.747tn，US 为 USD2.977tn，差距相对其他策略更小。</div></div>
+      <div class="qcard" data-text="30.3 trillion apparent decline methodology United States"><div class="qsrc">Core · Market size</div><div class="qtext">2022 年五大市场 sustainable investing assets 是多少？为什么表面下降 14%？</div><button class="qbtn">显示答案</button><div class="qanswer"><b>USD30.3 trillion。</b>表面下降 14% 主要源于美国 measurement methodology 变化，不应简单理解为所有地区 ESG 市场全面缩小。</div></div>
+      <div class="qcard" data-text="Europe 46 United States 28 domiciled assets"><div class="qsrc">Core · Domiciled assets</div><div class="qtext">全球 sustainable and responsible investing assets 主要 domiciled 在哪两个地区？</div><button class="qbtn">显示答案</button><div class="qanswer"><b>Europe 和 United States。</b>Europe 为 46%，United States 为 28%。</div></div>
+      <div class="qcard" data-text="negative exclusionary screening third Japan 2.1"><div class="qsrc">Core · Strategy</div><div class="qtext">2022 第三大策略是什么？哪个国家在这一策略 AUM 最高？</div><button class="qbtn">显示答案</button><div class="qanswer"><b>Negative/exclusionary screening。</b>Japan 在该策略下 AUM 最高，约 USD2.1tn。</div></div>
+      <div class="qcard" data-text="ESG integration largest growth relabeling recycling greenwashing"><div class="qsrc">Core · Growth</div><div class="qtext">2016–2022 增长最大的 strategy 是什么？为什么有 greenwashing 争议？</div><button class="qbtn">显示答案</button><div class="qanswer"><b>ESG integration。</b>增长主要由美国市场驱动，且被认为与已有基金 relabeling / recycling 有关，因此引发是否增加 greenwashing 的争论。</div></div>
+      <div class="qcard" data-text="institutional retail 2012 2018 2020 not reported 2022"><div class="qsrc">Core · Investor type</div><div class="qtext">Retail 与 institutional 的定义是什么？2012 到 2018 有何变化？</div><button class="qbtn">显示答案</button><div class="qanswer"><b>Retail = individuals；institutional = investment firms。</b>2012 retail 为 11%、institutional 为 89%；2018 retail 升至 25%。</div></div>
+      <div class="qcard" data-text="asset class public equities fixed income real estate private equity other"><div class="qsrc">Core · Asset class</div><div class="qtext">2018 ESG asset class allocation 中前两大资产类别及比例是什么？</div><button class="qbtn">显示答案</button><div class="qanswer"><b>Public equities 51%，fixed income 36%。</b>Real estate/property 和 private equity/venture capital 各为 3%，other 为 7%。</div></div>
+      <div class="qcard" data-text="methodological changes 2020 2022 comparisons difficult"><div class="qsrc">Core · Methodology</div><div class="qtext">为什么 Exhibit 2 的历史比较要谨慎？</div><button class="qbtn">显示答案</button><div class="qanswer">因为多个地区在 2020 或 2022 进行了 significant methodological changes，使其与以前报告的比较特别困难。</div></div>
+      <div class="qcard" data-text="Japan most AUM sustainability themed norms ESG integration corporate engagement"><div class="qsrc">Core · Japan</div><div class="qtext">Japan 在哪些 strategy 上拥有最高 AUM？</div><button class="qbtn">显示答案</button><div class="qanswer">Sustainability-themed investing、norms-based screening、ESG integration、corporate engagement/shareholder action；同时 Japan 在 negative/exclusionary screening 下也报告最高 AUM。</div></div>
+      <div class="qcard" data-text="other asset classes hedge funds cash depository commodities infrastructure"><div class="qsrc">Core · Other assets</div><div class="qtext">Asset class 里的 “Other” 包含哪些资产？</div><button class="qbtn">显示答案</button><div class="qanswer">Hedge funds、cash or depository vehicles、commodities、infrastructure。</div></div>
+      <div class="qcard" data-text="main equation geography strategy investor type asset class"><div class="qsrc">Logic equation</div><div class="qtext">请用一个逻辑等式概括 2.1.1。</div><button class="qbtn">显示答案</button><div class="qanswer"><b>ESG investing in numbers == geography + strategy + investor type + asset class。</b>再套数字：Europe 规模大、Canada 占比高、engagement 策略最大、institutional 主导但 retail 增长、public equity 最大。</div></div>
+    </div>
+  </section>
+
+  <!-- COMPRESSED -->
+  <section id="compressed" class="panel">
+    <div class="panel-head">
+      <div><div class="eyebrow">Compressed Review</div><h2>考前压缩背诵版</h2></div>
+      <div class="head-desc">把本模块压成一个口诀和八组数字。</div>
+    </div>
+    <div class="compressed">
+      <div class="chant">
+        <div class="chant-title">One-line memory</div>
+        <div class="chant-line">ESG 市场 == 在哪儿 + 用什么策略 + 谁的钱 + 买什么资产</div>
+      </div>
+      <div class="memory-grid">
+        <div class="memory-block"><div class="t">Size</div><div class="b"><span class="number-chip">USD30.3tn</span><span class="number-chip">apparent -14%</span><br/>下降主要看 US methodology change，不要误解成全面缩水。</div></div>
+        <div class="memory-block"><div class="t">Geography</div><div class="b"><span class="number-chip">Europe 46%</span><span class="number-chip">US 28%</span><br/>绝对规模 Europe 最大；相对总资产占比 Canada 最高。</div></div>
+        <div class="memory-block"><div class="t">Relative Share 2022</div><div class="b"><span class="number-chip">Canada 47%</span><span class="number-chip">Aust/NZ 43%</span><span class="number-chip">Europe 38%</span><span class="number-chip">Japan 34%</span><span class="number-chip">US 13%</span></div></div>
+        <div class="memory-block"><div class="t">Strategy</div><div class="b"><span class="number-chip">Engagement 8.0tn</span><span class="number-chip">Integration 5.6tn</span><br/>2022 最大是 engagement；2016–2022 增长最大是 integration。</div></div>
+        <div class="memory-block"><div class="t">Investor Type</div><div class="b"><span class="number-chip">Retail 11% in 2012</span><span class="number-chip">Retail 25% in 2018</span><br/>Institutional 仍主导，但 retail share increased。</div></div>
+        <div class="memory-block"><div class="t">Asset Class</div><div class="b"><span class="number-chip">Public equity 51%</span><span class="number-chip">Fixed income 36%</span><span class="number-chip">RE 3%</span><span class="number-chip">PE/VC 3%</span><span class="number-chip">Other 7%</span></div></div>
+        <div class="memory-block"><div class="t">Practice Trap</div><div class="b">Q1 选 listed equity；Q11 选 Canada；Q12 选 corporate engagement；Q13 选 increased；Q16 选 corporate engagement。</div></div>
+        <div class="memory-block"><div class="t">Final Hook</div><div class="b">“欧大、加深、投票互动最大；机构主导但散户长大；股票第一，债券第二。”</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+const tabs = Array.from(document.querySelectorAll('.tab'));
+const panels = Array.from(document.querySelectorAll('.panel'));
+tabs.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    tabs.forEach(b=>b.classList.remove('active'));
+    panels.forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    const panel=document.getElementById(btn.dataset.tab);
+    panel.classList.add('active');
+    const nav = document.querySelector('.nav');
+    const offset = nav ? nav.getBoundingClientRect().height + 22 : 86;
+    const top = panel.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({top: Math.max(0, top), behavior:'smooth'});
+  });
+});
+
+document.querySelectorAll('.qbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const a = btn.nextElementSibling;
+    const open = a.style.display === 'block';
+    a.style.display = open ? 'none' : 'block';
+    btn.textContent = open ? '显示答案' : '隐藏答案';
+  });
+});
+const showAll=document.getElementById('showAll'), hideAll=document.getElementById('hideAll');
+if(showAll){showAll.addEventListener('click',()=>{
+  document.querySelectorAll('.qanswer').forEach(a=>a.style.display='block');
+  document.querySelectorAll('.qbtn').forEach(b=>b.textContent='隐藏答案');
+});}
+if(hideAll){hideAll.addEventListener('click',()=>{
+  document.querySelectorAll('.qanswer').forEach(a=>a.style.display='none');
+  document.querySelectorAll('.qbtn').forEach(b=>b.textContent='显示答案');
+});}
+const search=document.getElementById('search');
+if(search){search.addEventListener('input',()=>{
+  const q=search.value.trim().toLowerCase();
+  document.querySelectorAll('.qcard').forEach(card=>{
+    const text=(card.dataset.text+' '+card.textContent).toLowerCase();
+    card.style.display = (!q || text.includes(q)) ? '' : 'none';
+  });
+});}
+</script>
+</body>
+</html>

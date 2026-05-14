@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>ESG Ch.2 Module 2 · Market Drivers &amp; Value Chain</title>
+<style>
+:root{
+  --ink:#111827;--sub:#374151;--muted:#6b7280;--faint:#94a3b8;
+  --line:#e5e7eb;--line2:#f1f5f9;--paper:#ffffff;--bg:#eef4f8;--soft:#f8fafc;
+  --green:#15803d;--green-bg:#f0fdf4;--green-bdr:#bbf7d0;
+  --blue:#1d4ed8;--blue-bg:#eff6ff;--blue-bdr:#bfdbfe;
+  --teal:#0f766e;--teal-bg:#f0fdfa;--teal-bdr:#99f6e4;
+  --amber:#b45309;--amber-bg:#fffbeb;--amber-bdr:#fde68a;
+  --violet:#6d28d9;--violet-bg:#f5f3ff;--violet-bdr:#ddd6fe;
+  --rose:#be123c;--rose-bg:#fff1f2;--rose-bdr:#fecdd3;
+  --dark:#0f172a;--dark2:#1e293b;
+  --radius:22px;--radius-sm:14px;--shadow:0 12px 35px rgba(15,23,42,.10);--shadow-sm:0 3px 12px rgba(15,23,42,.07);
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --serif:"Iowan Old Style","Songti SC","Noto Serif SC","Source Han Serif SC","STSong","SimSun",serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);line-height:1.7;background:
+  radial-gradient(circle at 4% 0%,rgba(209,250,229,.9),transparent 28%),
+  radial-gradient(circle at 94% 3%,rgba(219,234,254,.88),transparent 30%),
+  linear-gradient(180deg,#f8fbff 0%,var(--bg) 45%,#f8fafc 100%);
+  min-height:100vh;overflow-x:hidden}
+body, button, input{font-family:var(--sans)}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 18px 80px;min-width:0}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:20px;align-items:stretch;margin-bottom:18px}
+.hero-main{background:rgba(255,255,255,.76);border:1px solid rgba(226,232,240,.9);border-radius:28px;padding:30px 32px;box-shadow:var(--shadow);backdrop-filter:blur(18px);min-width:0;overflow:hidden;position:relative}
+.hero-main:before{content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;border-radius:50%;background:linear-gradient(135deg,rgba(34,197,94,.13),rgba(37,99,235,.13));z-index:0}
+.hero-main > *{position:relative;z-index:1}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.pill{display:inline-flex;align-items:center;border:1px solid var(--line);background:rgba(255,255,255,.9);border-radius:999px;padding:5px 11px;font-size:12px;font-weight:800;color:var(--muted);box-shadow:var(--shadow-sm);max-width:100%;white-space:normal}
+h1{font-family:var(--serif);font-size:clamp(30px,5.2vw,56px);line-height:1.02;letter-spacing:-.055em;margin:0 0 14px;color:var(--dark)}
+.lead{font-size:15.5px;color:var(--sub);line-height:1.85;margin:0;max-width:760px}
+.hero-side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.scope-card,.formula-card{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:20px 22px;box-shadow:var(--shadow-sm);min-width:0;overflow:hidden}
+.scope-label{font-size:11px;font-weight:900;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+.scope-title{font-family:var(--serif);font-size:19px;font-weight:800;line-height:1.25;color:var(--dark);margin-bottom:10px}
+.scope-text{font-size:13.5px;color:var(--sub);line-height:1.72;margin:0}
+.formula-card{background:linear-gradient(135deg,var(--dark),#1f3d35);color:#fff}
+.formula-card .scope-label{color:#cbd5e1}
+.formula{font-size:14px;line-height:1.8;color:#e2e8f0;overflow-wrap:anywhere}
+.formula b{color:#bbf7d0}
+.nav{position:sticky;top:10px;z-index:30;margin:18px 0 24px;display:flex;gap:6px;flex-wrap:wrap;padding:8px;background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:22px;box-shadow:0 10px 30px rgba(15,23,42,.10);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.tab{border:none;background:transparent;color:var(--muted);border-radius:14px;padding:9px 13px;font-size:13px;font-weight:850;cursor:pointer;transition:background .15s,color .15s,transform .15s;white-space:nowrap}
+.tab:hover{background:var(--line2);color:var(--ink)}
+.tab.active{background:var(--dark);color:#fff;box-shadow:0 6px 18px rgba(15,23,42,.22)}
+.panel{display:none;scroll-margin-top:86px;min-width:0}
+.panel.active{display:block;animation:rise .22s ease-out}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.panel-head{margin:0 0 18px}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.10em;color:var(--muted);text-transform:uppercase;margin-bottom:5px}
+h2{font-family:var(--serif);font-size:clamp(24px,4vw,38px);line-height:1.12;letter-spacing:-.04em;margin:0;color:var(--dark)}
+.subhead{font-size:14px;color:var(--muted);margin:7px 0 0;line-height:1.75}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.big-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-sm);min-width:0;overflow:hidden}
+.big-card h3,.driver-card h3,.logic-card h3,.trap-card h3{font-size:17px;line-height:1.35;margin:0 0 8px;color:var(--dark);overflow-wrap:anywhere}
+.big-card p,.driver-card p,.logic-card p,.trap-card p{font-size:13.5px;color:var(--sub);line-height:1.78;margin:0;overflow-wrap:anywhere}
+.tag{display:inline-flex;align-items:center;border-radius:999px;padding:4px 10px;font-size:11.5px;font-weight:900;line-height:1.2;margin:0 4px 5px 0;max-width:100%;white-space:normal}
+.tag-blue{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-bdr)}
+.tag-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-bdr)}
+.tag-amber{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bdr)}
+.tag-violet{background:var(--violet-bg);color:var(--violet);border:1px solid var(--violet-bdr)}
+.tag-teal{background:var(--teal-bg);color:var(--teal);border:1px solid var(--teal-bdr)}
+.tag-rose{background:var(--rose-bg);color:var(--rose);border:1px solid var(--rose-bdr)}
+.map-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:18px;align-items:stretch}
+.map-left{border-radius:20px;background:linear-gradient(135deg,#0f172a,#134e4a);padding:22px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.map-title{font-family:var(--serif);font-size:28px;font-weight:900;line-height:1.08;letter-spacing:-.04em;margin-bottom:12px}
+.map-left p{color:#d1fae5;font-size:13.5px;line-height:1.8;margin:0}
+.mini-equations{display:flex;flex-direction:column;gap:8px;margin-top:18px}
+.mini-eq{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:10px 12px;font-size:13px;color:#e2e8f0;overflow-wrap:anywhere}
+.map-right{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;min-width:0}
+.map-node{background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:15px;min-width:0}
+.node-num{font-size:22px;font-family:var(--serif);font-weight:900;color:var(--green);line-height:1}
+.node-title{font-size:13.5px;font-weight:900;color:var(--dark);margin:6px 0 3px;line-height:1.35}
+.node-text{font-size:12.5px;color:var(--muted);line-height:1.65}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:10px}
+.check-item{display:grid;grid-template-columns:24px minmax(0,1fr);gap:9px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px 13px;box-shadow:0 2px 8px rgba(15,23,42,.04);min-width:0}
+.check-mark{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--green-bg);border:1px solid var(--green-bdr);color:var(--green);font-size:13px;font-weight:900;flex:0 0 auto}
+.check-item strong{display:block;font-size:12.8px;color:var(--dark);line-height:1.35;margin-bottom:3px;overflow-wrap:anywhere}
+.check-item span{display:block;font-size:12.5px;color:var(--muted);line-height:1.55;overflow-wrap:anywhere}
+.driver-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.driver-card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:20px 18px;box-shadow:var(--shadow-sm);min-width:0;overflow:hidden}
+.driver-card:before{content:"";position:absolute;right:-36px;top:-36px;width:100px;height:100px;border-radius:50%;opacity:.14}
+.driver-card.d1:before{background:var(--green)}.driver-card.d2:before{background:var(--blue)}.driver-card.d3:before{background:var(--amber)}.driver-card.d4:before{background:var(--violet)}
+.driver-kicker{font-size:11px;font-weight:900;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+.driver-label{display:inline-flex;border-radius:999px;background:var(--line2);padding:4px 9px;font-size:12px;font-weight:900;color:var(--dark);margin-bottom:10px}
+.eq-mini{margin-top:12px;background:var(--soft);border:1px solid var(--line2);border-radius:14px;padding:11px 12px;font-size:12.5px;font-weight:750;color:var(--dark2);line-height:1.62;overflow-wrap:anywhere}
+.stake-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.stake-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:16px 17px;box-shadow:var(--shadow-sm);min-width:0;overflow:hidden}
+.stake-top{display:flex;gap:8px;align-items:flex-start;justify-content:space-between;margin-bottom:8px;min-width:0}
+.stake-name{font-size:15px;font-weight:950;color:var(--dark);line-height:1.3;min-width:0;overflow-wrap:anywhere}
+.stake-role{font-size:11.5px;font-weight:900;color:var(--teal);background:var(--teal-bg);border:1px solid var(--teal-bdr);border-radius:999px;padding:3px 8px;white-space:normal;text-align:right;max-width:44%;line-height:1.25}
+.stake-examples{font-size:12.5px;color:var(--muted);line-height:1.6;border-bottom:1px solid var(--line2);padding-bottom:8px;margin-bottom:8px;overflow-wrap:anywhere}
+.stake-card p{font-size:13px;color:var(--sub);line-height:1.72;margin:0}
+.diagram-wrap{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:var(--shadow-sm);overflow:hidden;min-width:0}
+.flow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;align-items:stretch;position:relative}
+.flow-step{background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:14px 13px;min-width:0;position:relative;overflow:hidden}
+.flow-step:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:50%;transform:translateY(-50%);font-weight:900;color:var(--faint);z-index:3;background:#fff;border:1px solid var(--line);border-radius:999px;width:23px;height:23px;display:flex;align-items:center;justify-content:center;font-size:13px}
+.flow-num{font-family:var(--serif);font-size:25px;font-weight:950;color:var(--green);line-height:1;margin-bottom:6px}
+.flow-title{font-size:13.5px;font-weight:950;color:var(--dark);line-height:1.25;margin-bottom:5px}
+.flow-action{font-size:12px;font-weight:850;color:var(--muted);line-height:1.35}
+.chain-list{display:flex;flex-direction:column;gap:12px}
+.chain-card{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:18px 20px;box-shadow:var(--shadow-sm);min-width:0;overflow:hidden}
+.chain-num{width:64px;height:64px;border-radius:20px;background:linear-gradient(135deg,var(--green),#134e4a);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:27px;font-weight:950;box-shadow:0 10px 22px rgba(21,128,61,.18)}
+.chain-title{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.chain-title strong{font-size:17px;color:var(--dark);line-height:1.3}
+.chain-title span{font-size:12px;font-weight:900;color:var(--blue);background:var(--blue-bg);border:1px solid var(--blue-bdr);border-radius:999px;padding:3px 9px}
+.chain-body p{font-size:13.5px;color:var(--sub);line-height:1.78;margin:0;overflow-wrap:anywhere}
+.chain-hook{margin-top:9px;background:var(--green-bg);border:1px solid var(--green-bdr);color:var(--green);border-radius:14px;padding:9px 11px;font-size:12.5px;font-weight:750;line-height:1.6;overflow-wrap:anywhere}
+.table-wrap{width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:20px;background:var(--paper);box-shadow:var(--shadow-sm)}
+table{width:100%;border-collapse:collapse;min-width:820px}
+th{background:linear-gradient(135deg,#166534,#15803d);color:#fff;text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;padding:12px 14px;white-space:normal}
+td{border-top:1px solid var(--line);padding:13px 14px;font-size:13px;color:var(--sub);vertical-align:top;line-height:1.65;overflow-wrap:anywhere}
+td:first-child{font-weight:900;color:var(--dark);width:150px}
+td:nth-child(2){font-weight:800;color:var(--blue);width:120px}
+.logic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.logic-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:18px 19px;box-shadow:var(--shadow-sm);min-width:0;overflow:hidden}
+.logic-kicker{font-size:11px;font-weight:950;color:var(--violet);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.memory-strip{margin-top:14px;background:linear-gradient(135deg,var(--violet-bg),var(--blue-bg));border:1px solid #dbeafe;border-radius:24px;padding:18px 20px;color:var(--dark);font-size:14px;line-height:1.8;box-shadow:var(--shadow-sm)}
+.trap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.trap-card{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--rose);border-radius:20px;padding:16px 18px;box-shadow:var(--shadow-sm);min-width:0;overflow:hidden}
+.search-row{display:flex;gap:10px;margin-bottom:14px;align-items:center}
+.search{flex:1;border:1px solid var(--line);border-radius:16px;padding:12px 15px;font-size:14px;background:var(--paper);outline:none;min-width:0}
+.search:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.10)}
+.btn-small{border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 13px;font-size:12.5px;font-weight:900;color:var(--sub);cursor:pointer;white-space:nowrap}
+.qa-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+details.qa{background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);overflow:hidden;min-width:0}
+details.qa summary{list-style:none;cursor:pointer;padding:14px 16px;font-size:13.5px;font-weight:850;color:var(--dark);line-height:1.55;display:grid;grid-template-columns:auto minmax(0,1fr);gap:9px;align-items:start;min-width:0}
+details.qa summary::-webkit-details-marker{display:none}
+details.qa summary span{font-size:11px;font-weight:950;color:var(--blue);background:var(--blue-bg);border:1px solid var(--blue-bdr);border-radius:999px;padding:3px 8px;line-height:1.2;margin-top:1px;white-space:nowrap}
+details.qa summary:after{content:"＋";justify-self:end;color:var(--faint);grid-column:2;display:none}
+details.qa[open] summary{border-bottom:1px solid var(--line2)}
+details.qa div{padding:13px 16px 16px;font-size:13.5px;color:var(--sub);line-height:1.8;background:var(--soft);overflow-wrap:anywhere}
+.compress{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:var(--shadow);min-width:0;overflow:hidden}
+.compress-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.compress-card{border-radius:20px;padding:17px 18px;min-width:0;overflow:hidden}
+.compress-card h3{font-size:14px;font-weight:950;line-height:1.35;margin:0 0 8px}
+.compress-card p{font-size:13px;line-height:1.78;margin:0;overflow-wrap:anywhere}
+.footer-note{margin-top:14px;font-size:12.5px;color:var(--muted);line-height:1.7}
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr}
+  .driver-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .flow{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .flow-step:not(:last-child)::after{display:none}
+  .logic-grid,.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .map-card{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .wrap{padding:14px 12px 60px}
+  .hero-main{padding:22px 18px;border-radius:24px}
+  .nav{position:static;overflow-x:auto;flex-wrap:nowrap;border-radius:18px;margin:14px 0 20px}
+  .tab{font-size:12px;padding:8px 10px}
+  .grid-2,.grid-3,.driver-grid,.stake-grid,.logic-grid,.trap-grid,.qa-list,.compress-grid,.map-right{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
+  .chain-card{grid-template-columns:1fr;gap:10px;padding:16px}
+  .chain-num{width:56px;height:56px;border-radius:18px;font-size:24px}
+  .stake-top{display:block}
+  .stake-role{display:inline-flex;margin-top:7px;max-width:100%;text-align:left}
+  .search-row{flex-wrap:wrap}
+  .search{flex-basis:100%}
+  .scope-card,.formula-card{padding:18px}
+}
+
+@media(max-width:680px){
+  .table-wrap{overflow-x:visible;border:none;background:transparent;box-shadow:none}
+  table{min-width:0;width:100%;display:block}
+  thead{display:none}
+  tbody{display:flex;flex-direction:column;gap:12px}
+  tr{display:block;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:12px 13px}
+  td{display:grid;grid-template-columns:88px minmax(0,1fr);gap:8px;border:none!important;padding:7px 0!important;width:auto!important;font-size:12.8px}
+  td::before{content:attr(data-label);font-size:11px;font-weight:950;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  td:first-child,td:nth-child(2){width:auto;color:var(--sub)}
+  td:first-child{font-weight:950;color:var(--dark)}
+}
+@media(max-width:420px){
+  h1{font-size:32px}
+  .map-title{font-size:24px}
+  .check-grid{grid-template-columns:1fr}
+  .check-item{grid-template-columns:22px minmax(0,1fr);padding:11px}
+  .driver-card,.big-card,.diagram-wrap,.compress{padding:17px}
+}
+@media print{
+  body{background:#fff!important}
+  .nav,.search-row{display:none!important}
+  .panel{display:block!important;page-break-after:always}
+  .panel:last-child{page-break-after:auto}
+  .hero{grid-template-columns:1fr!important}
+  .big-card,.driver-card,.stake-card,.chain-card,.logic-card,.trap-card,.compress{box-shadow:none!important}
+  details.qa div{display:block!important}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+<section class="hero">
+<div class="hero-main">
+<div class="pills">
+<span class="pill">📘 ESG Chapter 2</span>
+<span class="pill">Module 2 · 2.1.2</span>
+<span class="pill">Market Drivers + Value Chain</span>
+<span class="pill">逻辑等式记忆法</span>
+</div>
+<h1>The ESG Market<br/>Drivers &amp; Value Chain</h1>
+<p class="lead">本模块把 2.1.2 拆成两个问题：<b>ESG 市场为什么增长？</b>以及<b>增长信号如何穿过 investment value chain 进入投资决策？</b>核心方法是“4 股风 + 6 节车厢”：四类市场驱动力推动六个价值链角色。</p>
+</div>
+<aside class="hero-side">
+<div class="scope-card">
+<div class="scope-label">Scope</div>
+<div class="scope-title">2.1.2 · Market drivers of ESG integration</div>
+<p class="scope-text">覆盖：investor demand / intergenerational wealth transfer、regulation &amp; policy、public awareness、data sourcing &amp; processing improvements，以及 Exhibit 7 的 investment management value chain。</p>
+</div>
+<div class="formula-card">
+<div class="scope-label">Core equation</div>
+<div class="formula"><b>ESG Market Growth</b> == 钱要 ESG + 法要 ESG + 社会要 ESG + 数据能 ESG<br/><b>Value Chain</b> == Owner → Consultant → Manager → Broker → Exchange → Policy Maker</div>
+</div>
+</aside>
+</section>
+<nav aria-label="module navigation" class="nav">
+<button class="tab active" data-tab="overview">总览</button>
+<button class="tab" data-tab="coverage">覆盖清单</button>
+<button class="tab" data-tab="drivers">四大驱动</button>
+<button class="tab" data-tab="stakeholders">Stakeholders</button>
+<button class="tab" data-tab="chain">结构图</button>
+<button class="tab" data-tab="source">原文表格</button>
+<button class="tab" data-tab="logic">逻辑卡片</button>
+<button class="tab" data-tab="traps">题眼陷阱</button>
+<button class="tab" data-tab="review">自测</button>
+<button class="tab" data-tab="compressed">压缩背诵</button>
+</nav>
+<section class="panel active" id="overview">
+<div class="panel-head">
+<div class="eyebrow">Overview · Hidden Line</div>
+<h2>第 2 章的市场逻辑：不是“ESG 流行”，而是“信号被传导”</h2>
+<p class="subhead">2.1.2 的难点不在背四个 driver，而在理解这些 driver 如何经由投资链条转化为产品、研究、披露、监管和投资决策。</p>
+</div>
+<div class="map-card big-card">
+<div class="map-left">
+<div>
+<div class="map-title">4 股风<br/>吹动 6 节车厢</div>
+<p>四类市场驱动力不是并列孤岛：投资者需求拉动产品，监管设定规则，公众意识增加压力，数据改善降低实施摩擦。它们共同推动价值链上的角色改变行为。</p>
+</div>
+<div class="mini-equations">
+<div class="mini-eq"><b>Drivers</b> == Investor demand + Regulation + Public awareness + Data improvements</div>
+<div class="mini-eq"><b>Transmission</b> == choices + services/information</div>
+<div class="mini-eq"><b>Value chain</b> == 5 financial-system roles + policy makers</div>
+</div>
+</div>
+<div class="map-right">
+<div class="map-node"><div class="node-num">01</div><div class="node-title">钱要 ESG</div><div class="node-text">Asset owners、retail investors 与代际财富转移形成需求。</div></div>
+<div class="map-node"><div class="node-num">02</div><div class="node-title">法要 ESG</div><div class="node-text">Regulation and policy 提高披露、分类和监督要求。</div></div>
+<div class="map-node"><div class="node-num">03</div><div class="node-title">社会要 ESG</div><div class="node-text">Public awareness、NGOs、civil society 施加外部压力。</div></div>
+<div class="map-node"><div class="node-num">04</div><div class="node-title">数据能 ESG</div><div class="node-text">Data sourcing、processing、ratings、disclosure 让 ESG 可执行。</div></div>
+<div class="map-node"><div class="node-num">05</div><div class="node-title">选择影响决策</div><div class="node-text">Stakeholders 通过自己的 choices 推动需求和供给。</div></div>
+<div class="map-node"><div class="node-num">06</div><div class="node-title">服务信息影响决策</div><div class="node-text">Services / information 影响筛选、估值、产品和监督。</div></div>
+</div>
+</div>
+<div class="grid-3" style="margin-top:16px">
+<article class="big-card"><span class="tag tag-green">题目拆解</span><h3>Market Drivers</h3><p>回答“为什么市场会动”：需求、监管、公众意识、数据改善分别从钱、规则、社会压力和技术信息能力四个方向推动 ESG integration。</p></article>
+<article class="big-card"><span class="tag tag-blue">隐藏线</span><h3>Push and Pull</h3><p>Responsible investment 的 demand and supply 是多方共同塑造的。有人提出需求，有人制造产品，有人提供数据，有人制定规则。</p></article>
+<article class="big-card"><span class="tag tag-violet">结构核心</span><h3>Investment Value Chain</h3><p>Owner 发信号，Consultant 翻译，Manager 执行，Broker 定价研究，Exchange 标准化，Policy Maker 强化规则。</p></article>
+</div>
+</section>
+<section class="panel" id="coverage">
+<div class="panel-head">
+<div class="eyebrow">Coverage Checklist · no omission</div>
+<h2>覆盖清单</h2>
+<p class="subhead">按原文知识点逐项拆开。后续模块会展开每类 stakeholder 的细节；本页负责 2.1.2 的 driver + value chain 骨架。</p>
+</div>
+<div class="check-grid">
+<div class="check-item"><div class="check-mark">✓</div><div><strong>LO 2.1.2</strong><span>解释 ESG integration 的四个关键市场驱动：investor demand / intergenerational wealth transfer、regulation and policy、public awareness、data sourcing and processing improvements。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>范围边界</strong><span>本模块建立 2.1.2 的驱动力与 investment value chain 骨架；asset owners、asset managers、fund promoters、financial services、regulators 等细节将在后续模块展开。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Investor demand</strong><span>需求来自 institutional asset owners 和 individual / retail investors；这种需求给资产管理人形成直接商业激励。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Intergenerational wealth transfer</strong><span>代际财富转移意味着未来资产控制权更多转向更重视 ESG / sustainability 的群体，是 retail demand 的长期背景。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Regulation &amp; policy</strong><span>政府政策与监管增加，会改变投资者、产品、披露和市场基础设施的行为。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Public awareness</strong><span>公众意识、NGO 和 civil society 压力，会推动公司、投资者和监管者提高 ESG 透明度和行动力度。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Data improvements</strong><span>ESG data sourcing、analysis、ratings、disclosure 与处理能力改善，使投资者更容易识别、比较和实施 ESG。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Push &amp; Pull</strong><span>Responsible investment 的增长不是单点驱动，而是需求端 pull、供给端 push、监管端 rule pressure 与信息端 data enablement 共同作用。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>直接影响方式 1</strong><span>利益相关方可以通过自己做出的 choices 直接影响投资决策。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>直接影响方式 2</strong><span>利益相关方也可以通过提供 services 和 information 直接影响投资决策。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Stakeholder list 1</strong><span>Asset owners：pension funds、insurers、sovereign wealth funds、endowment funds、foundations、individual / retail investors。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Stakeholder list 2</strong><span>Asset managers。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Stakeholder list 3</strong><span>Fund promoters：investment consultants、retail investment advisers、investment platforms、fund labelers。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Stakeholder list 4</strong><span>Financial services：investment banks、investment research and advisory firms、stock exchanges、financial and ESG rating agencies。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Stakeholder list 5</strong><span>Policymakers and regulators。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Stakeholder list 6</strong><span>Investees。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Stakeholder list 7</strong><span>Government。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Stakeholder list 8</strong><span>Civil society and academia。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Value chain caveat</strong><span>投资价值链没有唯一标准划分；教材只是为了讨论 responsible investment，把主要角色作出一种聚合。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Listed equities example</strong><span>Exhibit 7 是 listed equities 的 investment management value chain 示例。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Other asset classes</strong><span>其他资产类别的价值链可能略有不同，可能有更多或更少 intermediaries。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Financial system</strong><span>前五个实体属于金融系统内的 beneficiaries，并在 investment value chain 中相互作用。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Policy makers</strong><span>Policy makers 与金融系统分离，但和前五个角色共同构成 real economy。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Role 1</strong><span>Asset owners 将 sustainability commitments 嵌入投资运营、投资策略、资产类别、经理监督、内部组合管理、研究与治理沟通。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Role 1 detail</strong><span>Asset owners 可把 sustainability factors 纳入 investment consultants / investment managers 的选择过程，并嵌入 mandates。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Role 2</strong><span>Investment consultants 在 asset owners 发出信号后，会被激励去更好评估 managers 的 ESG performance。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Role 2 detail</strong><span>Consultants 会向 asset owners 推荐符合 trustees 需求的 ESG products / services，并解释其如何与 fiduciary duties 对齐。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Role 3</strong><span>Investment managers 会因 market signals 增强而提供 advanced ESG investment products，以维持市场份额。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Role 3 detail</strong><span>Managers 的输出包括 meaningful shareholder engagement，以及向 asset owners 报告 implementation 和 outcomes。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Role 4</strong><span>Investment brokers / independent research providers 把 ESG performance 纳入 buy / hold / sell recommendations。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Role 4 detail</strong><span>Brokers 会要求公司提供 robust、credible、detailed 的 ESG management accounts，并说明 ESG issues 的 financial significance。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Role 4 connection</strong><span>Brokers / research providers 还会与 rating agencies、data providers、policy makers 沟通 responsible investment 相关议题。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Role 5</strong><span>Stock exchanges 位于 investment chain 的核心，可自愿或按监管要求强化 listing requirements。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Role 5 detail</strong><span>Stock exchanges 也可提供覆盖 ESG metrics 的 sustainability indexes。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Role 6</strong><span>Policy makers 在 sustainability 贯穿投资链后，更可能支持强化 responsible investment practice 的监管倡议。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Role 6 detail</strong><span>Policy makers 可就 climate change 等超越 capital allocation 的议题与 pension funds 互动，涉及 policy formulation 和 implementation。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Exam angle</strong><span>官方题 Q7 的题眼是“directly influences investment decisions through choices or services/information”；选项中 Government 是 key stakeholder。</span></div></div>
+<div class="check-item"><div class="check-mark">✓</div><div><strong>Memory method</strong><span>本模块用“4 股风 + 6 节车厢”记忆：四驱动吹动市场，六角色把 ESG 信号传导到投资决策。</span></div></div>
+</div>
+</section>
+<section class="panel" id="drivers">
+<div class="panel-head">
+<div class="eyebrow">Market Drivers · 4 winds</div>
+<h2>四大市场驱动：钱、法、声、数</h2>
+<p class="subhead">这四项就是 2.1.2 的明示考点。记忆时不要只背英文列表，而要把每个 driver 绑定到“压力来源”。</p>
+</div>
+<div class="driver-grid">
+<article class="driver-card d1">
+<div class="driver-kicker">风 01</div>
+<h3>Investor demand / Intergenerational wealth transfer</h3>
+<div class="driver-label">钱要 ESG</div>
+<p>资产所有者与个人投资者的需求上升，给 asset managers 提供商业激励。代际财富转移会让更重视 ESG 的群体逐渐掌握更多资产控制权。</p>
+<div class="eq-mini">Demand pull == owners + retail + next generation</div>
+</article>
+<article class="driver-card d2">
+<div class="driver-kicker">风 02</div>
+<h3>Regulation and policy</h3>
+<div class="driver-label">规则要 ESG</div>
+<p>政策、监管、披露、产品分类和投资者保护要求上升，会改变投资链上各角色的最低合规动作和市场标准。</p>
+<div class="eq-mini">Rule pressure == policy + regulation + supervision</div>
+</article>
+<article class="driver-card d3">
+<div class="driver-kicker">风 03</div>
+<h3>Public awareness</h3>
+<div class="driver-label">社会要 ESG</div>
+<p>公众、NGO、civil society 与媒体压力让 ESG 风险更容易转化为声誉风险、政策风险和客户需求。</p>
+<div class="eq-mini">Public pressure == awareness + NGO/civil society + transparency demand</div>
+</article>
+<article class="driver-card d4">
+<div class="driver-kicker">风 04</div>
+<h3>Data sourcing and processing improvements</h3>
+<div class="driver-label">数据能 ESG</div>
+<p>ESG 数据、评级、披露、平台和分析工具改善，使投资者更容易识别、比较、筛选和监督 ESG 表现。</p>
+<div class="eq-mini">Data enablement == sourcing + analysis + disclosure + ratings</div>
+</article>
+</div>
+<div class="memory-strip"><b>逻辑等式：</b>ESG integration drivers == <b>钱</b>的需求（owners + retail + next generation） + <b>法</b>的压力（policy + regulation） + <b>声</b>的压力（public awareness + NGOs） + <b>数</b>的能力（data + ratings + disclosure + analytics）。</div>
+</section>
+<section class="panel" id="stakeholders">
+<div class="panel-head">
+<div class="eyebrow">Stakeholders · choices + services/information</div>
+<h2>八类关键利益相关方：谁在影响投资决策？</h2>
+<p class="subhead">原文强调：这些 actors 更直接影响 investment decisions，方式要么是他们做出的 choices，要么是他们提供的 services / information。</p>
+</div>
+<div class="stake-grid">
+<article class="stake-card">
+<div class="stake-top"><span class="stake-name">Asset owners</span><span class="stake-role">资金源头 / 需求端</span></div>
+<div class="stake-examples">pension funds · insurers · sovereign wealth funds · endowments · foundations · retail investors</div>
+<p>提出目标、偏好和约束，决定是否把 ESG 写进选择、授权和监督。</p>
+</article>
+<article class="stake-card">
+<div class="stake-top"><span class="stake-name">Asset managers</span><span class="stake-role">产品与执行端</span></div>
+<div class="stake-examples">portfolio managers · fund managers</div>
+<p>把 ESG 纳入产品、组合、研究、风险分析和 stewardship。</p>
+</article>
+<article class="stake-card">
+<div class="stake-top"><span class="stake-name">Fund promoters</span><span class="stake-role">把关和分发端</span></div>
+<div class="stake-examples">consultants · advisers · platforms · labelers</div>
+<p>把资产所有者需求翻译成 manager selection、fund shortlist、评级、标签和平台推荐。</p>
+</article>
+<article class="stake-card">
+<div class="stake-top"><span class="stake-name">Financial services</span><span class="stake-role">工具和信息端</span></div>
+<div class="stake-examples">investment banks · research/advisory · exchanges · rating agencies</div>
+<p>提供证券、研究、评级、披露要求、指数和市场基础设施。</p>
+</article>
+<article class="stake-card">
+<div class="stake-top"><span class="stake-name">Policymakers &amp; regulators</span><span class="stake-role">规则端</span></div>
+<div class="stake-examples">policy makers · financial regulators</div>
+<p>通过监管、披露、分类、投资者保护和监督预期改变市场行为。</p>
+</article>
+<article class="stake-card">
+<div class="stake-top"><span class="stake-name">Investees</span><span class="stake-role">数据和实体端</span></div>
+<div class="stake-examples">companies · projects · agencies · jurisdictions</div>
+<p>管理 ESG 风险与影响，并向投资者提供信息。</p>
+</article>
+<article class="stake-card">
+<div class="stake-top"><span class="stake-name">Government</span><span class="stake-role">政策目标端</span></div>
+<div class="stake-examples">public policy · public investment · social priorities</div>
+<p>通过政策、公共资金、基础设施和低碳转型目标推动市场方向。</p>
+</article>
+<article class="stake-card">
+<div class="stake-top"><span class="stake-name">Civil society &amp; academia</span><span class="stake-role">舆论和证据端</span></div>
+<div class="stake-examples">NGOs · public campaigns · research</div>
+<p>提升公众意识、施加外部压力，并用研究验证 ESG 的投资逻辑。</p>
+</article>
+</div>
+</section>
+<section class="panel" id="chain">
+<div class="panel-head">
+<div class="eyebrow">Diagram · Investment Management Value Chain</div>
+<h2>结构图：六角色如何传导 ESG 信号</h2>
+<p class="subhead">这里用 HTML 结构图重画 Exhibit 7 的逻辑，不用流程图源码，也不显示任何未渲染代码。</p>
+</div>
+<div class="diagram-wrap">
+<div aria-label="Investment management value chain" class="flow">
+<div class="flow-step"><div class="flow-num">01</div><div class="flow-title">Asset Owners</div><div class="flow-action">设定方向 / 写入 mandate</div></div>
+<div class="flow-step"><div class="flow-num">02</div><div class="flow-title">Investment Consultants</div><div class="flow-action">评估 managers / 提供建议</div></div>
+<div class="flow-step"><div class="flow-num">03</div><div class="flow-title">Investment Managers</div><div class="flow-action">产品、组合、engagement</div></div>
+<div class="flow-step"><div class="flow-num">04</div><div class="flow-title">Investment Brokers</div><div class="flow-action">研究、推荐、价格信号</div></div>
+<div class="flow-step"><div class="flow-num">05</div><div class="flow-title">Stock Exchanges</div><div class="flow-action">上市要求、ESG indexes</div></div>
+<div class="flow-step"><div class="flow-num">06</div><div class="flow-title">Policy Makers</div><div class="flow-action">监管倡议、政策制定</div></div>
+</div>
+</div>
+<div class="chain-list" style="margin-top:16px">
+<article class="chain-card">
+<div class="chain-num">01</div>
+<div class="chain-body">
+<div class="chain-title"><strong>Asset Owners</strong><span>设定方向</span></div>
+<p>把 sustainability commitments 嵌入投资运营、策略、资产类别、经理监督、内部管理、董事会 / trustees / CIO / legal / disclosure / customer communications，并写入 consultant / manager selection 与 mandates。</p>
+<div class="chain-hook">🪝 需求信号从这里发出</div>
+</div>
+</article>
+<article class="chain-card">
+<div class="chain-num">02</div>
+<div class="chain-body">
+<div class="chain-title"><strong>Investment Consultants</strong><span>翻译需求</span></div>
+<p>当 asset owners 表明重视 sustainability，consultants 会更积极评估 managers 的 ESG performance，并根据 trustees 需求提供 ESG products / services，同时解释其与 fiduciary duties 的一致性。</p>
+<div class="chain-hook">🪝 把 owner 的信念翻成 selection 与 recommendation</div>
+</div>
+</article>
+<article class="chain-card">
+<div class="chain-num">03</div>
+<div class="chain-body">
+<div class="chain-title"><strong>Investment Managers</strong><span>生产产品</span></div>
+<p>市场信号增强后，managers 会提供 advanced ESG products 以维持市场份额，并开展与客户 investment beliefs 一致的 shareholder engagement，向 owners 报告 implementation 和 outcomes。</p>
+<div class="chain-hook">🪝 把 ESG 变成组合和 stewardship</div>
+</div>
+</article>
+<article class="chain-card">
+<div class="chain-num">04</div>
+<div class="chain-body">
+<div class="chain-title"><strong>Investment Brokers</strong><span>定价研究</span></div>
+<p>Brokers 和 independent research providers 把 ESG performance 纳入 buy / hold / sell recommendations，要求公司提供可靠、详细的 ESG 管理说明及其财务重要性，并与评级、数据和政策方沟通。</p>
+<div class="chain-hook">🪝 把 ESG 变成研究、建议和市场价格信号</div>
+</div>
+</article>
+<article class="chain-card">
+<div class="chain-num">05</div>
+<div class="chain-body">
+<div class="chain-title"><strong>Stock Exchanges</strong><span>标准化入口</span></div>
+<p>作为 investment chain 的核心，交易所可自愿或在监管下强化上市公司披露 / listing requirements，并提供 advanced sustainability indexes。</p>
+<div class="chain-hook">🪝 把 ESG 变成上市规则与指数工具</div>
+</div>
+</article>
+<article class="chain-card">
+<div class="chain-num">06</div>
+<div class="chain-body">
+<div class="chain-title"><strong>Policy Makers</strong><span>强化规则</span></div>
+<p>当 sustainability 嵌入投资链，policy makers 更可能支持强化 responsible investment practice 的监管倡议，并就 climate change 等超越 capital allocation 的议题与 pension funds 互动。</p>
+<div class="chain-hook">🪝 政策制定者在金融系统外，但和前五者共同构成 real economy</div>
+</div>
+</article>
+</div>
+</section>
+<section class="panel" id="source">
+<div class="panel-head">
+<div class="eyebrow">Source Table · Exhibit 7 reconstructed</div>
+<h2>原文表格复刻：Investment Management Value Chain</h2>
+<p class="subhead">按原文 Exhibit 7 的六个 role 复刻为学习表。内容经过压缩转写，重点保留“谁做什么”和“考点怎么问”。</p>
+</div>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Role</th><th>一句话动作</th><th>原文要点压缩</th><th>记忆钩子</th></tr></thead>
+<tbody><tr><td data-label="Role">01 · Asset Owners</td><td data-label="一句话动作">设定方向</td><td data-label="原文要点压缩">把 sustainability commitments 嵌入投资运营、策略、资产类别、经理监督、内部管理、董事会 / trustees / CIO / legal / disclosure / customer communications，并写入 consultant / manager selection 与 mandates。</td><td data-label="记忆钩子">需求信号从这里发出</td></tr>
+<tr><td data-label="Role">02 · Investment Consultants</td><td data-label="一句话动作">翻译需求</td><td data-label="原文要点压缩">当 asset owners 表明重视 sustainability，consultants 会更积极评估 managers 的 ESG performance，并根据 trustees 需求提供 ESG products / services，同时解释其与 fiduciary duties 的一致性。</td><td data-label="记忆钩子">把 owner 的信念翻成 selection 与 recommendation</td></tr>
+<tr><td data-label="Role">03 · Investment Managers</td><td data-label="一句话动作">生产产品</td><td data-label="原文要点压缩">市场信号增强后，managers 会提供 advanced ESG products 以维持市场份额，并开展与客户 investment beliefs 一致的 shareholder engagement，向 owners 报告 implementation 和 outcomes。</td><td data-label="记忆钩子">把 ESG 变成组合和 stewardship</td></tr>
+<tr><td data-label="Role">04 · Investment Brokers</td><td data-label="一句话动作">定价研究</td><td data-label="原文要点压缩">Brokers 和 independent research providers 把 ESG performance 纳入 buy / hold / sell recommendations，要求公司提供可靠、详细的 ESG 管理说明及其财务重要性，并与评级、数据和政策方沟通。</td><td data-label="记忆钩子">把 ESG 变成研究、建议和市场价格信号</td></tr>
+<tr><td data-label="Role">05 · Stock Exchanges</td><td data-label="一句话动作">标准化入口</td><td data-label="原文要点压缩">作为 investment chain 的核心，交易所可自愿或在监管下强化上市公司披露 / listing requirements，并提供 advanced sustainability indexes。</td><td data-label="记忆钩子">把 ESG 变成上市规则与指数工具</td></tr>
+<tr><td data-label="Role">06 · Policy Makers</td><td data-label="一句话动作">强化规则</td><td data-label="原文要点压缩">当 sustainability 嵌入投资链，policy makers 更可能支持强化 responsible investment practice 的监管倡议，并就 climate change 等超越 capital allocation 的议题与 pension funds 互动。</td><td data-label="记忆钩子">政策制定者在金融系统外，但和前五者共同构成 real economy</td></tr></tbody>
+</table>
+</div>
+<div class="footer-note">提示：Exhibit 7 是 listed equities 的示例；其他资产类别可能存在不同数量的 intermediaries。不要把这张表背成所有资产类别的唯一价值链。</div>
+</section>
+<section class="panel" id="logic">
+<div class="panel-head">
+<div class="eyebrow">Logic Equation Cards · skill method</div>
+<h2>逻辑等式卡片</h2>
+<p class="subhead">用“题目拆解 → 隐藏线 → 逻辑等式 → 心象钩子”的顺序，把知识变成可以回忆的结构。</p>
+</div>
+<div class="logic-grid">
+<article class="logic-card"><div class="logic-kicker">题目拆解</div><h3>Market Drivers + Value Chain</h3><p>题目拆成两半：Market Drivers 回答“市场为什么会动”；Value Chain 回答“这个动能怎么传到投资决策”。</p></article>
+<article class="logic-card"><div class="logic-kicker">隐藏线</div><h3>增长不是一个点</h3><p>ESG market 的增长不是“大家突然喜欢 ESG”，而是需求、规则、舆论、数据四股力量，经由一条投资链逐级传导。</p></article>
+<article class="logic-card"><div class="logic-kicker">主逻辑等式</div><h3>ESG market growth</h3><p>ESG market growth == investor demand + regulation/policy + public awareness + data improvements</p></article>
+<article class="logic-card"><div class="logic-kicker">传导等式</div><h3>Investment value chain</h3><p>ESG signal transfer == Owner sets need → Consultant translates → Manager executes → Broker prices → Exchange standardizes → Policymaker reinforces</p></article>
+<article class="logic-card"><div class="logic-kicker">心象钩子</div><h3>四风六车</h3><p>想象一列 6 节车厢：Owner、Consultant、Manager、Broker、Exchange、Policy Maker。四股风——钱、法、声、数——推动这列车向 responsible investment 前进。</p></article>
+<article class="logic-card"><div class="logic-kicker">考试反应</div><h3>看到 choices / services / information</h3><p>题干若说通过 choices 或 services / information 直接影响 investment decisions，要先锁定“key stakeholders”，不要误选非关键社区角色。</p></article>
+</div>
+<div class="memory-strip"><b>三秒回忆：</b>看到 2.1.2，先写“钱法声数”。看到 value chain，先写“Owner → Consultant → Manager → Broker → Exchange → Policy Maker”。看到 choices / services / information，立刻想到 key stakeholders 直接影响 investment decisions。</div>
+</section>
+<section class="panel" id="traps">
+<div class="panel-head">
+<div class="eyebrow">Exam Traps · question eyes</div>
+<h2>题眼陷阱</h2>
+<p class="subhead">这页专门防止“看懂了但选错”。第 2 章很喜欢考角色边界、价值链位置和直接/间接影响。</p>
+</div>
+<div class="trap-grid">
+<article class="trap-card"><h3>Government ≠ 非投资角色</h3><p>虽然 government 不一定直接买证券，但教材把 Government 列为 key stakeholder；官方 Q7 在选项中应选 Government。</p></article>
+<article class="trap-card"><h3>Policy makers ≠ 前五个金融系统角色</h3><p>前五个角色在 financial system 内互动；policy makers 是 separate from financial system，但六者共同形成 real economy。</p></article>
+<article class="trap-card"><h3>Value chain 没有唯一标准</h3><p>不要把 Exhibit 7 当成所有资产类别都完全相同的价值链；它只是 listed equities 的示例。</p></article>
+<article class="trap-card"><h3>Consultants 是 gate / translator</h3><p>Consultants 不是最终资金拥有者，也不是组合执行者；他们把 asset owner 的需求转成 manager assessment 与 recommendations。</p></article>
+<article class="trap-card"><h3>Brokers 不是只交易</h3><p>本节强调 brokers / research providers 会把 ESG performance 纳入 buy / hold / sell recommendations。</p></article>
+<article class="trap-card"><h3>Data improvements 不是小配角</h3><p>数据、披露、评级和处理能力改善会降低 ESG implementation 的摩擦，是 2.1.2 明示 market driver。</p></article>
+<article class="trap-card"><h3>Public awareness 与 civil society 相关</h3><p>公众意识不是孤立口号，常通过 NGOs、civil society pressure、媒体关注和透明度要求进入市场。</p></article>
+<article class="trap-card"><h3>Asset owners 是需求原点</h3><p>后续模块会深入讲 asset owners；本模块先记住它们在价值链中负责发出方向和委托信号。</p></article>
+</div>
+</section>
+<section class="panel" id="review">
+<div class="panel-head">
+<div class="eyebrow">Self Test · active recall</div>
+<h2>自测题</h2>
+<p class="subhead">先不看答案，尝试用“4 股风 + 6 节车厢”自己推出来。搜索框可以按关键词筛题。</p>
+</div>
+<div class="search-row">
+<input autocomplete="off" class="search" id="search" placeholder="搜索：drivers · government · consultants · data · policy makers · stock exchanges…" type="search"/>
+<button class="btn-small" id="openAll">全部展开</button>
+<button class="btn-small" id="closeAll">全部收起</button>
+</div>
+<div class="qa-list" id="qaList">
+<details class="qa" data-text="2.1.2 明示的四个 key market drivers 是什么？ Investor demand / intergenerational wealth transfer；regulation and policy；public awareness；data sourcing and processing improvements。"><summary><span>Q1</span>2.1.2 明示的四个 key market drivers 是什么？</summary><div>Investor demand / intergenerational wealth transfer；regulation and policy；public awareness；data sourcing and processing improvements。</div></details>
+<details class="qa" data-text="Responsible investment 的 demand and supply 是由什么塑造的？ 由多个 stakeholders 共同塑造，它们通过 choices 或 services / information 直接影响投资决策。"><summary><span>Q2</span>Responsible investment 的 demand and supply 是由什么塑造的？</summary><div>由多个 stakeholders 共同塑造，它们通过 choices 或 services / information 直接影响投资决策。</div></details>
+<details class="qa" data-text="教材列出的 main stakeholders 有哪八类？ Asset owners；asset managers；fund promoters；financial services；policymakers and regulators；investees；government；civil society and academia。"><summary><span>Q3</span>教材列出的 main stakeholders 有哪八类？</summary><div>Asset owners；asset managers；fund promoters；financial services；policymakers and regulators；investees；government；civil society and academia。</div></details>
+<details class="qa" data-text="Fund promoters 包括哪些角色？ Investment consultants、retail investment advisers、investment platforms、fund labelers。"><summary><span>Q4</span>Fund promoters 包括哪些角色？</summary><div>Investment consultants、retail investment advisers、investment platforms、fund labelers。</div></details>
+<details class="qa" data-text="Financial services 在本节包括哪些角色？ Investment banks、investment research and advisory firms、stock exchanges、financial and ESG rating agencies。"><summary><span>Q5</span>Financial services 在本节包括哪些角色？</summary><div>Investment banks、investment research and advisory firms、stock exchanges、financial and ESG rating agencies。</div></details>
+<details class="qa" data-text="Investment value chain 为什么不能死背成唯一模板？ 因为教材明确说没有标准划分；Exhibit 7 是 listed equities 示例，其他资产类别可能有更多或更少中介。"><summary><span>Q6</span>Investment value chain 为什么不能死背成唯一模板？</summary><div>因为教材明确说没有标准划分；Exhibit 7 是 listed equities 示例，其他资产类别可能有更多或更少中介。</div></details>
+<details class="qa" data-text="Exhibit 7 的六个角色按顺序是什么？ Asset Owners → Investment Consultants → Investment Managers → Investment Brokers → Stock Exchanges → Policy Makers。"><summary><span>Q7</span>Exhibit 7 的六个角色按顺序是什么？</summary><div>Asset Owners → Investment Consultants → Investment Managers → Investment Brokers → Stock Exchanges → Policy Makers。</div></details>
+<details class="qa" data-text="前五个角色与 policy makers 的位置差异是什么？ 前五个是 financial system 内的 beneficiaries，相互沿价值链互动；policy makers 与金融系统分离，但六者共同构成 real economy。"><summary><span>Q8</span>前五个角色与 policy makers 的位置差异是什么？</summary><div>前五个是 financial system 内的 beneficiaries，相互沿价值链互动；policy makers 与金融系统分离，但六者共同构成 real economy。</div></details>
+<details class="qa" data-text="Asset owners 在价值链里最核心的动作是什么？ 把 sustainability commitments 嵌入投资运营、策略、资产类别、经理选择 / 监督和 mandates。"><summary><span>Q9</span>Asset owners 在价值链里最核心的动作是什么？</summary><div>把 sustainability commitments 嵌入投资运营、策略、资产类别、经理选择 / 监督和 mandates。</div></details>
+<details class="qa" data-text="Investment consultants 被 asset owners 的 sustainability 信号激励后，会做什么？ 更好地评估 investment managers 的 ESG performance，向 asset owners 推荐产品 / 服务，并解释其与 fiduciary duties 的一致性。"><summary><span>Q10</span>Investment consultants 被 asset owners 的 sustainability 信号激励后，会做什么？</summary><div>更好地评估 investment managers 的 ESG performance，向 asset owners 推荐产品 / 服务，并解释其与 fiduciary duties 的一致性。</div></details>
+<details class="qa" data-text="Investment managers 在市场信号增强时的典型反应是什么？ 提供 advanced ESG investment products，以维持市场份额；开展 shareholder engagement，并向 asset owners 报告 implementation 和 outcomes。"><summary><span>Q11</span>Investment managers 在市场信号增强时的典型反应是什么？</summary><div>提供 advanced ESG investment products，以维持市场份额；开展 shareholder engagement，并向 asset owners 报告 implementation 和 outcomes。</div></details>
+<details class="qa" data-text="Investment brokers / independent research providers 如何推动 ESG？ 把 ESG performance 纳入 buy / hold / sell recommendations，并要求公司提供可靠、详细的 ESG 管理与财务重要性信息。"><summary><span>Q12</span>Investment brokers / independent research providers 如何推动 ESG？</summary><div>把 ESG performance 纳入 buy / hold / sell recommendations，并要求公司提供可靠、详细的 ESG 管理与财务重要性信息。</div></details>
+<details class="qa" data-text="Stock exchanges 可以如何支持 ESG investment chain？ 强化上市 / disclosure requirements，并提供 sustainability indexes。"><summary><span>Q13</span>Stock exchanges 可以如何支持 ESG investment chain？</summary><div>强化上市 / disclosure requirements，并提供 sustainability indexes。</div></details>
+<details class="qa" data-text="Policy makers 在 Exhibit 7 中的角色是什么？ 支持强化 responsible investment practice 的监管倡议，并参与 climate change 等超越 capital allocation 的政策制定与实施。"><summary><span>Q14</span>Policy makers 在 Exhibit 7 中的角色是什么？</summary><div>支持强化 responsible investment practice 的监管倡议，并参与 climate change 等超越 capital allocation 的政策制定与实施。</div></details>
+<details class="qa" data-text="Which stakeholder directly influences investment decisions through choices or services/information? 选项若有 Government，应如何处理？ 选 Government。教材把 Government 列为 key stakeholder，能通过政策、规则和信息影响投资决策。"><summary><span>官方 Q7</span>Which stakeholder directly influences investment decisions through choices or services/information? 选项若有 Government，应如何处理？</summary><div>选 Government。教材把 Government 列为 key stakeholder，能通过政策、规则和信息影响投资决策。</div></details>
+</div>
+</section>
+<section class="panel" id="compressed">
+<div class="panel-head">
+<div class="eyebrow">Compressed Review · 5-minute final pass</div>
+<h2>压缩背诵版</h2>
+<p class="subhead">考前只看这页，先默写主等式，再核对细节。</p>
+</div>
+<div class="compress">
+<div class="compress-grid">
+<div class="compress-card" style="background:var(--dark);color:#fff"><h3 style="color:#bbf7d0">主等式</h3><p style="color:#e2e8f0">ESG Market Growth == 钱要 ESG + 法要 ESG + 社会要 ESG + 数据能 ESG。</p></div>
+<div class="compress-card" style="background:var(--green-bg);border:1px solid var(--green-bdr)"><h3 style="color:var(--green)">四大 Drivers</h3><p>Investor demand / intergenerational wealth transfer；regulation and policy；public awareness；data sourcing and processing improvements。</p></div>
+<div class="compress-card" style="background:var(--blue-bg);border:1px solid var(--blue-bdr)"><h3 style="color:var(--blue)">直接影响方式</h3><p>Stakeholders influence investment decisions either by choices they make or by services / information they provide。</p></div>
+<div class="compress-card" style="background:var(--violet-bg);border:1px solid var(--violet-bdr)"><h3 style="color:var(--violet)">八类 Stakeholders</h3><p>Asset owners；asset managers；fund promoters；financial services；policymakers and regulators；investees；government；civil society and academia。</p></div>
+<div class="compress-card" style="background:var(--amber-bg);border:1px solid var(--amber-bdr)"><h3 style="color:var(--amber)">六节车厢</h3><p>Asset Owners → Investment Consultants → Investment Managers → Investment Brokers → Stock Exchanges → Policy Makers。</p></div>
+<div class="compress-card" style="background:var(--rose-bg);border:1px solid var(--rose-bdr)"><h3 style="color:var(--rose)">最容易错</h3><p>Exhibit 7 不是唯一标准；policy makers 不在前五个 financial-system beneficiaries 内；Government 是 key stakeholder；data improvements 是正式 driver。</p></div>
+</div>
+<div class="memory-strip"><b>闭眼默写：</b>四股风：钱、法、声、数。六车厢：Owner、Consultant、Manager、Broker、Exchange、Policy Maker。两条影响路径：choices + services/information。</div>
+</div>
+</section>
+</main>
+<script>
+const tabs = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('.panel');
+tabs.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    tabs.forEach(b=>b.classList.remove('active'));
+    panels.forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    const panel = document.getElementById(btn.dataset.tab);
+    panel.classList.add('active');
+    setTimeout(()=>panel.scrollIntoView({behavior:'smooth',block:'start'}), 10);
+  });
+});
+const search = document.getElementById('search');
+if(search){
+  search.addEventListener('input',()=>{
+    const q = search.value.trim().toLowerCase();
+    document.querySelectorAll('.qa').forEach(item=>{
+      const text = (item.dataset.text || item.textContent).toLowerCase();
+      item.style.display = (!q || text.includes(q)) ? '' : 'none';
+    });
+  });
+}
+const openAll = document.getElementById('openAll');
+const closeAll = document.getElementById('closeAll');
+if(openAll) openAll.addEventListener('click',()=>document.querySelectorAll('.qa').forEach(d=>d.open=true));
+if(closeAll) closeAll.addEventListener('click',()=>document.querySelectorAll('.qa').forEach(d=>d.open=false));
+</script>
+</body>
+</html>
