@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ESG 学习网页目录</title>
+<style>
+:root{
+  --ink:#0f172a;--sub:#475569;--muted:#64748b;--line:#e2e8f0;--soft:#f8fafc;--bg:#eef4f8;--paper:#fff;--blue:#1d4ed8;--green:#15803d;--amber:#b45309;
+  --shadow:0 14px 40px rgba(15,23,42,.08);--radius:22px;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;--serif:"Iowan Old Style","Songti SC","Noto Serif SC",serif;
+}
+*{box-sizing:border-box} body{margin:0;font-family:var(--sans);color:var(--ink);background:linear-gradient(180deg,#f8fafc,#eef4f8);line-height:1.65}.wrap{max-width:1040px;margin:0 auto;padding:28px 16px 80px}.hero{background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow);padding:28px 30px;margin-bottom:18px}h1{font-family:var(--serif);font-size:clamp(30px,5vw,52px);line-height:1.05;letter-spacing:-.045em;margin:0 0 10px}.lead{margin:0;color:var(--sub);max-width:760px}.toolbar{display:flex;gap:10px;margin:18px 0;flex-wrap:wrap}.search{flex:1;min-width:240px;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:15px;outline:none}.pill{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:#fff;padding:8px 12px;color:var(--muted);font-size:13px;font-weight:800}.chapter{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 6px 24px rgba(15,23,42,.05);padding:20px 22px;margin:14px 0}h2{font-size:22px;margin:0 0 10px;letter-spacing:-.02em}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:16px;padding:15px;background:var(--soft);transition:.15s}.card:hover{transform:translateY(-1px);border-color:#bfdbfe;background:#eff6ff}.card-title{font-weight:900;margin-bottom:5px}.card-meta{font-size:12.5px;color:var(--muted)}.empty{border:1px dashed var(--line);color:var(--muted);background:#fff}.footer{color:var(--muted);font-size:12.5px;text-align:center;margin-top:28px}.tag{display:inline-block;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:900;margin-right:6px}.tag-green{background:#f0fdf4;color:var(--green);border:1px solid #bbf7d0}.tag-blue{background:#eff6ff;color:var(--blue);border:1px solid #bfdbfe}.tag-amber{background:#fffbeb;color:var(--amber);border:1px solid #fde68a}@media(max-width:760px){.grid{grid-template-columns:1fr}.hero{padding:24px 22px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <div class="pill">GitHub Pages · ESG HTML Library</div>
+    <h1>ESG 学习网页目录</h1>
+    <p class="lead">把每一节 HTML 放进对应章节文件夹；在这里集中打开。iPad 上访问 GitHub Pages 链接后，就可以按网页方式使用浏览器和翻译插件。</p>
+  </section>
+
+  <div class="toolbar">
+    <input class="search" id="search" type="search" placeholder="搜索：Chapter 1 · Module 1 · 1.1.1 · ESG investing …" />
+    <span class="pill">建议文件名：小写英文 + 数字 + 连字符</span>
+  </div>
+
+  <section class="chapter">
+    <h2>Chapter 1</h2>
+    <div class="grid">
+      <a class="card" href="ch01/esg_ch1_module1_1-1-1_to_1-1-2.html" data-keywords="chapter 1 module 1 1.1.1 1.1.2 ESG investing macro debate responsible investment">
+        <div class="card-title"><span class="tag tag-green">已上传</span>Module 1 · 1.1.1–1.1.2</div>
+        <div class="card-meta">ESG Investing 的定义、方法谱系与宏观纳入理由</div>
+      </a>
+      <div class="card empty" data-keywords="chapter 1 placeholder">
+        <div class="card-title"><span class="tag tag-amber">待添加</span>继续添加 Chapter 1 其他小节</div>
+        <div class="card-meta">把 HTML 文件放进 docs/ch01/，再在这里加一个链接。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <h2>Chapter 2–9</h2>
+    <div class="grid">
+      <div class="card empty"><div class="card-title"><span class="tag tag-blue">模板</span>Chapter 2</div><div class="card-meta">建议文件夹：docs/ch02/</div></div>
+      <div class="card empty"><div class="card-title"><span class="tag tag-blue">模板</span>Chapter 3</div><div class="card-meta">建议文件夹：docs/ch03/</div></div>
+      <div class="card empty"><div class="card-title"><span class="tag tag-blue">模板</span>Chapter 4–9</div><div class="card-meta">按同样方式继续添加。</div></div>
+    </div>
+  </section>
+
+  <p class="footer">Tip：以后每新增一个 HTML，就复制一个 card 链接块；不要用空格和中文文件名，避免 iPad 分享链接时被转码。</p>
+</main>
+<script>
+const q=document.getElementById('search');
+if(q){q.addEventListener('input',()=>{
+  const s=q.value.trim().toLowerCase();
+  document.querySelectorAll('.card').forEach(card=>{
+    const hay=(card.textContent+' '+(card.dataset.keywords||'')).toLowerCase();
+    card.style.display=(!s||hay.includes(s))?'block':'none';
+  });
+});}
+</script>
+</body>
+</html>
